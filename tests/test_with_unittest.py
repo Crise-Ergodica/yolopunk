@@ -1,7 +1,7 @@
 # Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
 
 import unittest
-from template.module1 import add_numbers, main
+from yolopunk.module1 import add_numbers, main
 
 class TestModule1(unittest.TestCase):
     """Test cases for module1 functions."""

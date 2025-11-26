@@ -1,6 +1,6 @@
-<a href="https://www.ultralytics.com/"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
+<a href="https://www.ultralytics.com/"><img src="docs/img/yolopunk_titulo.png" width="640" alt="Ultralytics logo"></a>
 
-# Documentation Directory (`docs/`)
+# Diretório de Documentação (`docs/`)
 
 This directory contains the documentation for the [Ultralytics](https://github.com/ultralytics/ultralytics) project, built and managed using [MkDocs](https://www.mkdocs.org/).
 
