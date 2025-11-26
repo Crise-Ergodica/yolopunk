@@ -64,7 +64,7 @@ INCOMPLETO
 
 ---
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> CONFIGURE OS  ҉L҉A҉B҉I҉R҉I҉N҉T҉O҉S҉
+## <img src="docs/img/pentagrama_icone.svg" width="26"> CONFIGURE O OꓕNIꓤIꓭⱯꓶ
 
 O framework não é suave — é um _labirinto de folhas_.  
 Cada parâmetro pode abrir uma porta… ou trancar você na sala errada.
