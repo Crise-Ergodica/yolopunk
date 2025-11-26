@@ -10,17 +10,10 @@
 
 </div>
 
----
-
-> _Nos escombros dos dados, um olho pisca._  
-> _Seu gnosticismo não te salvará do ruído digital._
-
----
-
 ## ☠️ MANIFESTO: O SIGILO ALGORÍTMICO
 
 **YOLOPunk** é o anti-framework.  
-O código fere, extrai, revela; os pixels sangram sob a luz pálida dos modelos.  
+O código foi escrito com o objetivo de perpetuar o formato ergodico antes do conteudo.  
 Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clareira, só corredores.
 
 - Não prometa simplicidade; abrace a carne excêntrica da complexidade.
@@ -34,46 +27,43 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 
 ## 📜 ESTRUTURA DA CASA
 
-yolopunk/
-├── yolopunk/         # Carcaça e carne: módulos nucleares
-│   ├── rituals/      # Processos herméticos – pré e pós-ritual de visão
-│   ├── models/       # Híbridos e bestas, YOLOv8/v9/vΩ
-│   ├── aberrations/  # Ferramentas não-euclidinas, glitches, ruídos
-│   ├── corpus/       # O grimório de dados escuros
-│   └── portal.py     # Vigia na soleira
-├── tests/            # Sacrifício: provas de sobrevida
-├── docs/             # Atestados e grimórios (MkDocs)
-├── .github/
-│   └── workflows/    # Golems automatos (CI/CD)
-├── LICENSE           # Não há liberdade sem caos
-└── README.md         # Este convite profano
+```plaintext
+your-project/
+│
+├── yolopunk/
+│   └── ...
+│
+├── tests/                      # IMPORTANTE: seus testes vão aqui!
+│   ├── __init__.py
+│   ├── test_module1.py
+│   └── ...
+│
+├── docs/                       # Sua documentação MkDocs
+│   └── ...
+│
+├── .github/                    
+│   └── ISSUE_TEMPLATE/         # Templates para 'issues'
+│   └── workflows/              # Automação de CI/CD
+│       ├── ci.yml
+|       └── format.yml
+│
+├── .gitignore                  # Arquivos que o Git ignora
+├── LICENSE                     # Licença do projeto
+├── pyproject.toml              # CRUCIAL: configurações do projeto
+└── README.md                   # Você está aqui!
+```
 
 ---
 
 ## 🕯️ INSTALAÇÃO – RITO DE ENTRADA
 
-Clone o código para seu templo.
-
-git clone https://github.com/Crise-Ergodica/yolopunk.git
-cd yolopunk
-pip install -e .
-# Ou inicie o ritual de desenvolvimento:
-pip install -e ".[dev]"
+INCOMPLETO
 
 ---
 
 ## 👁️ PRIMEIRO CONTATO
 
-from yolopunk import Portal
-
-vigia = Portal(ocr="hexagram")  # TODO: Modelo será invocado pelo nome do ritual
-
-resultados = vigia.invocar("lugar/misterioso.jpg")
-resultados.sangra()   # Mostra deslizes, cortes, fendas
-resultados.goteja("output.jpg")
-
-- Boxes? São selos.
-- Logs? São vestígios na poeira.
+INCOMPLETO
 
 ---
 
@@ -84,10 +74,6 @@ Cada parâmetro pode abrir uma porta… ou trancar você na sala errada.
 
 Veja o arquivo `pyproject.toml` para livros de receitas proibidas.  
 Exemplo de configuração:
-
-[vision.rituais]
-scriptorium = "yolopunk.rituals.necromancia"
-thresholds = [0.66, 0.13] # sangue ou carne
 
 ---
 
