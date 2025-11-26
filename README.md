@@ -1,8 +1,8 @@
 <div align="center">
 <img src="docs/img/yolopunk_titulo.png" width="640" alt="YOLOPunk Logo">
 
-# ⚡ YOLOPunk Framework
-###### _(Quebrando paradigmas desde 25/11/2025, por Aurora Drumond Costa Magalhães)_
+# ☣️ YOLOPUNK: VIGILÂNCIA, SANGUE E RUÍDO &nbsp;<sup>_Framework_</sup>
+#### _Entrando na casa dos labirintos desde 25/11/2025 - Aurora D. C. Magalhães_
 
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-red.svg?style=for-the-badge)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
@@ -12,327 +12,118 @@
 
 ---
 
-## 🔥 MANIFESTO
-
-**YOLOPunk** não é só mais um framework de visão computacional. É uma **revolução**.
-
-Chega de frameworks engessados, documentações confusas e APIs que parecem labirintos. YOLOPunk é **simplicidade radical**, **performance agressiva** e **código que respira liberdade**.
-
-Se você quer:
-- 🎯 Detectar objetos sem burocracia
-- 🚀 Processar imagens em velocidade punk
-- 🛠️ Customizar tudo sem precisar de doutorado
-- 💥 Código limpo, direto e sem frescura
-
-**Você está no lugar certo, rebelde.**
+> _Nos escombros dos dados, um olho pisca._  
+> _Seu gnosticismo não te salvará do ruído digital._
 
 ---
 
-## 🎸 FILOSOFIA PUNK
+## ☠️ MANIFESTO: O SIGILO ALGORÍTMICO
 
-```python
-# YOLOPunk: Do It Yourself, Do It Fast, Do It Right
+**YOLOPunk** é o anti-framework.  
+O código fere, extrai, revela; os pixels sangram sob a luz pálida dos modelos.  
+Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clareira, só corredores.
 
-from yolopunk import Vision
+- Não prometa simplicidade; abrace a carne excêntrica da complexidade.
+- Cada array é um corpo. Cada tensor, um esgoto.
+- Não fuja daquilo que parece impossível: corrompa, inquiete, desoriente.
+- O sangue é só o começo – escorra pelas imagens, trace pentagramas de bounding boxes, arranhe os arquivos.
 
-# Sem cerimônia. Sem complicação.
-detector = Vision("yolov8n")
-results = detector.detect("image.jpg")
-results.show()  # BOOM. Pronto.
-```
-
-**Princípios fundamentais:**
-
-1. **DIY (Do It Yourself)**: Você tem o controle total
-2. **No Bullshit**: APIs simples, sem abstrações desnecessárias
-3. **Fast & Furious**: Performance é não-negociável
-4. **Open & Free**: AGPL-3.0 porque código deve ser livre
-5. **Community-Driven**: Construído por hackers, para hackers
+**Entre. Perca-se.**
 
 ---
 
-## 🗂️ ESTRUTURA DO CAOS ORGANIZADO
+## 📜 ESTRUTURA DA CASA
 
-```plaintext
 yolopunk/
-│
-├── yolopunk/              # 🔧 Core: onde a mágica acontece
-│   ├── models/            # Modelos YOLO e derivações punk
-│   ├── utils/             # Ferramentas utilitárias
-│   ├── processing/        # Pré/pós-processamento
-│   └── vision.py          # API principal (seu ponto de entrada)
-│
-├── tests/                 # 🧪 Testes: porque punk não é descuidado
-│   ├── __init__.py
-│   ├── test_models.py
-│   ├── test_detection.py
-│   └── test_utils.py
-│
-├── docs/                  # 📚 Documentação honesta (sem marketing)
-│   ├── index.md
-│   ├── quickstart.md
-│   ├── api/
-│   └── img/
-│
+├── yolopunk/         # Carcaça e carne: módulos nucleares
+│   ├── rituals/      # Processos herméticos – pré e pós-ritual de visão
+│   ├── models/       # Híbridos e bestas, YOLOv8/v9/vΩ
+│   ├── aberrations/  # Ferramentas não-euclidinas, glitches, ruídos
+│   ├── corpus/       # O grimório de dados escuros
+│   └── portal.py     # Vigia na soleira
+├── tests/            # Sacrifício: provas de sobrevida
+├── docs/             # Atestados e grimórios (MkDocs)
 ├── .github/
-│   └── workflows/         # ⚙️ CI/CD automatizado
-│       ├── ci.yml         # Testes e linting
-│       └── format.yml     # Formatação de código
-│
-├── pyproject.toml         # 🎛️ Configuração central
-├── README.md              # 👊 Você está aqui
-└── LICENSE                # 📜 AGPL-3.0: liberdade garantida
-```
+│   └── workflows/    # Golems automatos (CI/CD)
+├── LICENSE           # Não há liberdade sem caos
+└── README.md         # Este convite profano
 
 ---
 
-## ⚡ INSTALAÇÃO RÁPIDA
+## 🕯️ INSTALAÇÃO – RITO DE ENTRADA
 
-### Via Git (Recomendado para rebeldes)
+Clone o código para seu templo.
 
-```bash
-# Clone e domine
 git clone https://github.com/Crise-Ergodica/yolopunk.git
 cd yolopunk
-
-# Instale em modo dev (você vai querer mexer no código)
 pip install -e .
-
-# Ou instale as dependências de desenvolvimento
+# Ou inicie o ritual de desenvolvimento:
 pip install -e ".[dev]"
-```
-
-### Via pip (Quando estiver pronto para o mundo)
-
-```bash
-pip install git+https://github.com/Crise-Ergodica/yolopunk.git
-```
 
 ---
 
-## 🚀 INÍCIO RÁPIDO
+## 👁️ PRIMEIRO CONTATO
 
-### Detecção Básica (Sem Frescura)
+from yolopunk import Portal
 
-```python
-from yolopunk import Vision
+vigia = Portal(ocr="hexagram")  # TODO: Modelo será invocado pelo nome do ritual
 
-# Inicialize o detector
-detector = Vision(model="yolov8n", device="cuda")  # ou "cpu" se for old-school
+resultados = vigia.invocar("lugar/misterioso.jpg")
+resultados.sangra()   # Mostra deslizes, cortes, fendas
+resultados.goteja("output.jpg")
 
-# Detecte objetos
-results = detector.detect("path/to/image.jpg")
-
-# Visualize os resultados
-results.show()
-
-# Salve a imagem anotada
-results.save("output.jpg")
-
-# Acesse as detecções
-for box in results.boxes:
-    print(f"Classe: {box.class_name}, Confiança: {box.confidence:.2f}")
-```
-
-### Processamento em Lote (Velocidade Máxima)
-
-```python
-import glob
-from yolopunk import Vision
-
-detector = Vision("yolov8n")
-
-# Processe múltiplas imagens
-images = glob.glob("dataset/*.jpg")
-for img in images:
-    results = detector.detect(img)
-    results.save(f"output/{img}")
-```
-
-### Vídeo em Tempo Real (Aí sim!)
-
-```python
-from yolopunk import Vision, VideoStream
-
-detector = Vision("yolov8n")
-stream = VideoStream(source=0)  # Webcam
-
-for frame in stream:
-    results = detector.detect(frame)
-    results.show_realtime()
-    
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
-stream.release()
-```
+- Boxes? São selos.
+- Logs? São vestígios na poeira.
 
 ---
 
-## 🎯 FEATURES PLANEJADAS
+## ⚙️ CONFIGURE OS LABIRINTOS
 
-- [x] Estrutura base do projeto
-- [x] README punk
-- [ ] API principal de detecção
-- [ ] Suporte a YOLOv8/v9/v10
-- [ ] Processamento em GPU otimizado
-- [ ] Streaming de vídeo
-- [ ] Segmentação de instâncias
-- [ ] Pose estimation
-- [ ] CLI interativa com Rich
-- [ ] Exportação para ONNX/TensorRT
-- [ ] Benchmarks de performance
-- [ ] Documentação completa com MkDocs
-- [ ] Notebooks de exemplo
-- [ ] Dataset utilities
+O framework não é suave — é um _labirinto de folhas_.  
+Cada parâmetro pode abrir uma porta… ou trancar você na sala errada.
+
+Veja o arquivo `pyproject.toml` para livros de receitas proibidas.  
+Exemplo de configuração:
+
+[vision.rituais]
+scriptorium = "yolopunk.rituals.necromancia"
+thresholds = [0.66, 0.13] # sangue ou carne
 
 ---
 
-## 🛠️ DESENVOLVIMENTO
+## 🧿 NOTAS
 
-### Configuração do Ambiente
-
-```bash
-# Clone o repo
-git clone https://github.com/Crise-Ergodica/yolopunk.git
-cd yolopunk
-
-# Crie um ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# ou
-venv\Scripts\activate  # Windows
-
-# Instale em modo de desenvolvimento
-pip install -e ".[dev]"
-```
-
-### Rodando Testes
-
-```bash
-# Rode todos os testes
-pytest tests/ -v
-
-# Com cobertura
-pytest tests/ --cov=yolopunk --cov-report=html
-
-# Testes específicos
-pytest tests/test_models.py -v
-```
-
-### Formatação e Linting
-
-```bash
-# Formate o código (automático via Ruff)
-ruff format .
-
-# Verifique problemas
-ruff check .
-
-# Corrija automaticamente
-ruff check --fix .
-```
-
-### Documentação Local
-
-```bash
-# Inicie o servidor MkDocs
-mkdocs serve
-
-# Acesse em http://localhost:8000
-```
+- Tudo documentado em `docs/`, mas é prudente duvidar.
+- Leia tudo com uma lanterna (e um sal).
+- Código amaldiçoado é melhor documentado, ou então some do repositório com ruídos.
 
 ---
 
-## 📚 DOCUMENTAÇÃO
+## ☠️ CONTRIBUA (SE OUSAR)
 
-> 🚧 **Em construção** - A documentação completa estará disponível em breve.
+Para adicionar seus próprios demônios,  
+- Faça um **fork**
+- Crie uma **branch** do seu ritual (`feature/aberracao`)
+- Faça um commit que doa nos outros (`git commit -m '💀 feat: miragem de pose'`)
+- Abra um PR. O sangue será avaliado.
 
-Por enquanto:
-- Explore o código em `yolopunk/`
-- Veja os exemplos em `tests/`
-- Leia os docstrings (código autodocumentado)
-
----
-
-## 🤝 CONTRIBUINDO
-
-**YOLOPunk é open-source e vive da comunidade.**
-
-### Como Contribuir:
-
-1. **Fork** o repositório
-2. **Crie** uma branch para sua feature (`git checkout -b feature/minha-feature-punk`)
-3. **Commit** suas mudanças (`git commit -m '⚡ Add: minha feature'`)
-4. **Push** para a branch (`git push origin feature/minha-feature-punk`)
-5. **Abra** um Pull Request
-
-### Diretrizes:
-
-- Código limpo e bem comentado
-- Testes para novas features
-- Docstrings no estilo Google
-- Commits semânticos (feat, fix, docs, etc.)
-- Respeite o estilo punk: simples, direto, eficiente
+Aceitamos contribuições que desafiem a razão e a sanidade. Testes são bem-vindos, e docstrings protegem dos horrores.
 
 ---
 
-## 📜 LICENÇA
+## ⚰️ LICENÇA
 
-YOLOPunk é licenciado sob **AGPL-3.0**.
-
-Isso significa:
-- ✅ Use livremente
-- ✅ Modifique como quiser
-- ✅ Distribua à vontade
-- ⚠️ Mantenha o código aberto
-- ⚠️ Compartilhe suas modificações
-
-Veja o arquivo [LICENSE](LICENSE) para detalhes completos.
-
----
-
-## 👤 AUTORA
-
-**Aurora Drumond Costa Magalhães**
-- 🌐 GitHub: [@Crise-Ergodica](https://github.com/Crise-Ergodica)
-- 📧 Email: gdcm10@gmail.com
-- 💼 Aperam IAIT - Engenharia de Software
-
----
-
-## 🔗 LINKS ÚTEIS
-
-- [Documentação](https://crise-ergodica.github.io/yolopunk/) _(em breve)_
-- [Issues](https://github.com/Crise-Ergodica/yolopunk/issues) - Reporte bugs ou sugira features
-- [Discussions](https://github.com/Crise-Ergodica/yolopunk/discussions) - Participe da comunidade
-- [Changelog](CHANGELOG.md) _(em breve)_ - Histórico de versões
-
----
-
-## ⭐ APOIE O PROJETO
-
-Se YOLOPunk te ajudou, considere:
-- ⭐ Dar uma **estrela** no repo
-- 🐛 Reportar **bugs** que encontrar
-- 💡 Sugerir **features** inovadoras
-- 🤝 Contribuir com **código**
-- 📢 Compartilhar com a **comunidade**
+**AGPL-3.0**: Compartilhe. Sangre. Corrompa novamente.  
+O que é derramado aqui, nunca mais retorna limpo.
 
 ---
 
 <div align="center">
 
-### 💥 **YOLOPUNK: VISÃO COMPUTACIONAL SEM COMPROMISSOS** 💥
+## 👁️ YOLOPUNK – O FRAMEWORK É O LABIRINTO  
+#### _Você não decifra, você se perde._
 
-**Construído com 🔥 por Aurora Drumond**
-
-*"Don't follow trends. Set them."*
-
----
-
-[![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-orange?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
+</div>/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python)](https://www.python.org/)
 
 </div>
