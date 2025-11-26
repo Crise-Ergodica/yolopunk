@@ -1,22 +1,19 @@
-# Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
+# YOLOPunk 🔥 AGPL-3.0 License
 
 # Overview:
-# This pyproject.toml file manages the build, packaging, and distribution of the Ultralytics Template library.
-# It defines essential project metadata, dependencies, and settings used to develop and deploy the library.
+# This pyproject.toml manages the build, packaging, and distribution of YOLOPunk.
+# A modular framework for computer vision experiments with YOLO.
 
 # Key Sections:
-# - [build-system]: Specifies the build requirements and backend (e.g., setuptools, wheel).
-# - [project]: Includes details like name, version, description, authors, dependencies and more.
-# - [project.optional-dependencies]: Provides additional, optional packages for extended features.
-# - [tool.*]: Configures settings for various tools (pytest, yapf, etc.) used in the project.
+# - [build-system]: Build requirements and backend (setuptools, wheel)
+# - [project]: Metadata, dependencies, and package information
+# - [project.optional-dependencies]: Additional packages for extended features
+# - [tool.*]: Configuration for development tools (pytest, ruff, etc.)
 
 # Installation:
-# The Template library can be installed using the command: 'pip install git+https://TOKEN:x-oauth-basic@github.com/ultralytics/template.git@main'
-# For development purposes, you can install the package in editable mode with: 'pip install -e .'
-# This approach allows for real-time code modifications without the need for re-installation.
-
-# Documentation:
-# For comprehensive documentation and usage instructions, visit: https://docs.ultralytics.com
+# Development mode (recommended): pip install -e .
+# With dev dependencies: pip install -e ".[dev]"
+# From GitHub: pip install git+https://github.com/Crise-Ergodica/yolopunk.git
 
 [build-system]
 requires = ["setuptools>=70.0.0", "wheel"]
@@ -24,62 +21,140 @@ build-backend = "setuptools.build_meta"
 
 # Project settings -----------------------------------------------------------------------------------------------------
 [project]
-name = "yolopunk"  # Required
+name = "yolopunk"
 version = "0.1.0"
-description = "Projeto Ergodico de Visão Computacional com YOLO"
+description = "Framework modular para visão computacional com YOLO - Projeto Ergódico"
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }
-keywords = ["Ultralytics", "yolopunk"]  # Optional
+keywords = [
+    "computer-vision",
+    "yolo",
+    "object-detection",
+    "deep-learning",
+    "pytorch",
+    "yolopunk"
+]
 authors = [
     { name = "Aurora Drumond Costa Magalhães", email = "gdcm10@gmail.com" }
-]
-maintainers = [
-    { name = "Glenn Jocher", email = "glenn.jocher@ultralytics.com" } # Optional
 ]
 
 # Required dependencies ------------------------------------------------------------------------------------------------
 dependencies = [
-    "numpy",
+    "numpy>=1.23.0",
 ]
 
 # Optional dependencies ------------------------------------------------------------------------------------------------
 [project.optional-dependencies]
 dev = [
-    "mkdocs",
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.0.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
 ]
 
-[project.urls]  # Optional
+# Full installation with all YOLO dependencies (quando necessário)
+yolo = [
+    "ultralytics>=8.0.0",
+    "opencv-python>=4.8.0",
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "pillow>=10.0.0",
+]
 
+# All optional dependencies
+all = [
+    "yolopunk[dev]",
+    "yolopunk[yolo]",
+]
 
-[project.scripts]  # Optional
-example-cli-command = "yolopunk.module1:main"  # executes `yolopunk.module1.main` when "example-cli-command" is run from CLI
+[project.urls]
+"Homepage" = "https://github.com/Crise-Ergodica/yolopunk"
+"Bug Tracker" = "https://github.com/Crise-Ergodica/yolopunk/issues"
+"Documentation" = "https://github.com/Crise-Ergodica/yolopunk/tree/main/docs"
+"Source Code" = "https://github.com/Crise-Ergodica/yolopunk"
+
+# Scripts CLI (adicionar quando tiver implementações prontas)
+# [project.scripts]
+# yolopunk = "yolopunk.cli:main"
+# yolopunk-detect = "yolopunk.detection:cli"
+# yolopunk-train = "yolopunk.training:cli"
 
 # Tools settings -------------------------------------------------------------------------------------------------------
-[tool.setuptools]  # configuration specific to the `setuptools` build backend.
+[tool.setuptools]
 packages = { find = { where = ["."], include = ["yolopunk", "yolopunk.*"] } }
-package-data = { "sample" = ["*.yaml"] }
+package-data = { "yolopunk" = ["*.yaml", "*.yml", "*.json"] }
 
 [tool.setuptools.dynamic]
 version = { attr = "yolopunk.__version__" }
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --durations=30 --color=yes"
-norecursedirs = [".git", "dist", "build"]
+addopts = "--doctest-modules --durations=30 --color=yes --cov=yolopunk --cov-report=html"
+norecursedirs = [".git", "dist", "build", "__pycache__", "*.egg-info"]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
 
 [tool.ruff]
 line-length = 120
-target-version = "py310"
+target-version = "py39"
+exclude = [
+    ".git",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    ".venv",
+    "venv",
+]
 
 [tool.ruff.lint]
-select = ["UP"]  # enables Python-upgrade rules
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+]
 
 [tool.ruff.format]
 docstring-code-format = true
+quote-style = "double"
+indent-style = "space"
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.ruff.lint.isort]
+known-first-party = ["yolopunk"]
+
 [tool.codespell]
-ignore-words-list = "crate,nd,strack,dota,ane,segway,fo,gool,winn,commend"
-skip = '*.csv,*venv*,docs/??/,docs/mkdocs_??.yml'
+ignore-words-list = "crate,nd,strack,dota,ane,segway,fo,gool,winn,commend,yolo,hist"
+skip = "*.csv,*venv*,docs/??/,docs/mkdocs_??.yml,.git,*.pyc,*.class,*.ipynb"
+
+[tool.coverage.run]
+source = ["yolopunk"]
+omit = [
+    "*/tests/*",
+    "*/test_*.py",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "@abstractmethod",
+]
