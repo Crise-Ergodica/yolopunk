@@ -1,15 +1,15 @@
 <div align="center">
 <img src="docs/img/yolopunk_titulo.png" width="640" alt="YOLOPunk Logo">
 
-###### _Entrando na casa dos labirintos desde 25/11/2025 - Aurora D. C. Magalhães_
+###### _sǝɐ̰ɥןɐƃɐW ˙Ɔ ˙ᗡ ɐɹoɹn∀ - 5202/11/52 ǝpsǝp soʇuıɹıqɐן sop ɐsɐɔ ɐu opuɐɹʇuƎ_
 
-![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge)
+![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge) 
 ![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
 ![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
 
 </div>
 
-## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> MANIFESTO DO CÓDIGO
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝐌𝐀𝐍𝐈𝐅𝐄𝐒𝐓𝐎 DO CÓDIGO 
 
 **YOLOPunk** é o anti-framework.  
 O código foi escrito com o objetivo de perpetuar o formato ergodico antes do conteudo.  
@@ -23,7 +23,7 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 
 ---
 
-## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> ESTRUTURA DA CASA
+## <img src="docs/img/pentagrama_icone.svg" width="26"> ESTRUTURA DO 𝙔𝙊𝙇𝙊𝙋𝙐𝙉𝙆
 
 ```plaintext
 yolopunk/
@@ -53,19 +53,19 @@ yolopunk/
 
 ---
 
-## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> INSTALAÇÃO – RITO DE ENTRADA
+## <img src="docs/img/pentagrama_icone.svg" width="26"> ЯIƬӨ DE INSTALAÇÃO
 
 INCOMPLETO
 
 ---
 
-## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> PRIMEIRO CONTATO
+## <img src="docs/img/pentagrama_icone.svg" width="26"> PRIMEIRO 𝙲𝙾𝙽𝚃𝙰𝚃𝙾
 
 INCOMPLETO
 
 ---
 
-## ⚙️ CONFIGURE OS LABIRINTOS
+## <img src="docs/img/pentagrama_icone.svg" width="26"> CONFIGURE OS  ҉L҉A҉B҉I҉R҉I҉N҉T҉O҉S҉
 
 O framework não é suave — é um _labirinto de folhas_.  
 Cada parâmetro pode abrir uma porta… ou trancar você na sala errada.
@@ -75,7 +75,7 @@ Exemplo de configuração:
 
 ---
 
-## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> NOTAS
+## <img src="docs/img/pentagrama_icone.svg" width="26"> NOTAS
 
 - Tudo documentado em `docs/`, mas é prudente duvidar.
 - Leia tudo com uma lanterna (e um sal).
@@ -83,7 +83,7 @@ Exemplo de configuração:
 
 ---
 
-## ☠️ CONTRIBUA (SE OUSAR)
+## <img src="docs/img/pentagrama_icone.svg" width="26"> CONTRIBUA _ˢᵉ ᵒᵘˢᵃʳ_
 
 Para adicionar seus próprios demônios,  
 - Faça um **fork**
@@ -95,7 +95,7 @@ Aceitamos contribuições que desafiem a razão e a sanidade. Testes são bem-vi
 
 ---
 
-## ⚰️ LICENÇA
+## <img src="docs/img/pentagrama_icone.svg" width="26">️ LICENÇA
 
 **AGPL-3.0**: Compartilhe. Sangre. Corrompa novamente.  
 O que é derramado aqui, nunca mais retorna limpo.
@@ -110,4 +110,5 @@ O que é derramado aqui, nunca mais retorna limpo.
 [![Bem-Vindo!](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python)](https://www.python.org/)
 
-
+<img src="docs/img/pentagrama_icone.svg" width="26"><img src="docs/img/pentagrama_icone.svg" width="26"><img src="docs/img/pentagrama_icone.svg" width="26">
+</div>
