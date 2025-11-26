@@ -9,8 +9,7 @@
 
 </div>
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝐌𝐀𝐍𝐈𝐅𝐄𝐒𝐓𝐎 DO CÓDIGO 
-
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝐌𝐀𝐍𝐈𝐅𝐄𝐒𝐓𝐎 DO CÓDIGO
 **YOLOPunk** é o anti-framework.  
 O código foi escrito com o objetivo de perpetuar o formato ergodico antes do conteudo.  
 Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clareira, só corredores.
