@@ -1,34 +1,32 @@
 <div align="center">
 <img src="docs/img/yolopunk_titulo.png" width="640" alt="YOLOPunk Logo">
 
-# ☣️ YOLOPUNK: VIGILÂNCIA, SANGUE E RUÍDO &nbsp;<sup>_Framework_</sup>
-#### _Entrando na casa dos labirintos desde 25/11/2025 - Aurora D. C. Magalhães_
+###### _Entrando na casa dos labirintos desde 25/11/2025 - Aurora D. C. Magalhães_
 
-[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-red.svg?style=for-the-badge)](LICENSE)
-[![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python)](https://www.python.org/)
-[![Status: Em Construção](https://img.shields.io/badge/Status-Em%20Construção-yellow.svg?style=for-the-badge)](https://github.com/Crise-Ergodica/yolopunk)
+![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge)
+![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
+![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
 
 </div>
 
-## ☠️ MANIFESTO: O SIGILO ALGORÍTMICO
+## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> MANIFESTO DO CÓDIGO
 
 **YOLOPunk** é o anti-framework.  
 O código foi escrito com o objetivo de perpetuar o formato ergodico antes do conteudo.  
 Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clareira, só corredores.
 
 - Não prometa simplicidade; abrace a carne excêntrica da complexidade.
-- Cada array é um corpo. Cada tensor, um esgoto.
+- Documente cada paço que tiver antes que se perca.
 - Não fuja daquilo que parece impossível: corrompa, inquiete, desoriente.
-- O sangue é só o começo – escorra pelas imagens, trace pentagramas de bounding boxes, arranhe os arquivos.
-
+- Teste tudo, mas desconfie de tudo.
 **Entre. Perca-se.**
 
 ---
 
-## 📜 ESTRUTURA DA CASA
+## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> ESTRUTURA DA CASA
 
 ```plaintext
-your-project/
+yolopunk/
 │
 ├── yolopunk/
 │   └── ...
@@ -55,13 +53,13 @@ your-project/
 
 ---
 
-## 🕯️ INSTALAÇÃO – RITO DE ENTRADA
+## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> INSTALAÇÃO – RITO DE ENTRADA
 
 INCOMPLETO
 
 ---
 
-## 👁️ PRIMEIRO CONTATO
+## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> PRIMEIRO CONTATO
 
 INCOMPLETO
 
@@ -77,7 +75,7 @@ Exemplo de configuração:
 
 ---
 
-## 🧿 NOTAS
+## <img src="https://api.iconify.design/game-icons:bleeding-eye.svg?color=%238B0000&flip=horizontal" width="26"> NOTAS
 
 - Tudo documentado em `docs/`, mas é prudente duvidar.
 - Leia tudo com uma lanterna (e um sal).
@@ -106,10 +104,10 @@ O que é derramado aqui, nunca mais retorna limpo.
 
 <div align="center">
 
-## 👁️ YOLOPUNK – O FRAMEWORK É O LABIRINTO  
+## O FRAMEWORK É O LABIRINTO  
 #### _Você não decifra, você se perde._
 
-</div>/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
+[![Bem-Vindo!](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python)](https://www.python.org/)
 
-</div>
+
