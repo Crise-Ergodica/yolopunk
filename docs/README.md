@@ -1,24 +1,360 @@
-<a href="https://www.ultralytics.com/"><img src="docs/img/yolopunk_titulo.png" width="640" alt="Ultralytics logo"></a>
+# yolopunk Documentation
 
-# Diretório de Documentação (`docs/`)
+<div align="center">
 
-This directory contains the documentation for the [Ultralytics](https://github.com/ultralytics/ultralytics) project, built and managed using [MkDocs](https://www.mkdocs.org/).
+![yolopunk](https://img.shields.io/badge/yolopunk-ergodic-c41e3a?style=for-the-badge)
+![MkDocs](https://img.shields.io/badge/MkDocs-Material-526CFE?style=for-the-badge&logo=materialformkdocs)
+![Jinja2](https://img.shields.io/badge/Jinja2-Templates-B41717?style=for-the-badge&logo=jinja)
 
-## 📖 Overview
+**Documentação ergódica que sangra precisão**
 
-- **MkDocs Configuration:** The primary configuration file for MkDocs is `mkdocs.yml`. This file defines the structure, navigation, and settings of our project documentation. You can learn more about [MkDocs configuration options](https://www.mkdocs.org/user-guide/configuration/).
-- **Documentation Files:** All documentation content is written in [Markdown](https://www.markdownguide.org/basic-syntax/), a lightweight markup language. These files reside within this `docs/` directory and are organized according to the structure defined in `mkdocs.yml`.
+</div>
 
-## 🚀 Getting Started
+---
 
-To work with the documentation locally:
+## 🎯 Estrutura
 
-1.  **Install MkDocs:** Ensure MkDocs and its necessary extensions are installed in your Python environment. Follow the [MkDocs installation guide](https://www.mkdocs.org/user-guide/installation/) if you haven't already.
-2.  **Preview Documentation:** Navigate to the root directory of this repository in your terminal and run the command `mkdocs serve`. This starts a local development server, allowing you to preview the documentation site in your web browser, typically at `http://127.0.0.1:8000/`. The site will automatically reload when you save changes to the documentation files or the configuration.
-3.  **Build Documentation:** To generate the static HTML site (usually for deployment), use the `mkdocs build` command. This creates a `site/` directory containing the built documentation. For more details on commands, see the [MkDocs CLI documentation](https://www.mkdocs.org/user-guide/cli/).
+```
+docs/
+├── index.md                    # Página inicial
+├── grimorio/                  # Documentação profunda
+│   ├── sinopse.md
+│   ├── treino.md
+│   └── validacao.md
+├── api/                      # Referência da API
+│   └── overview.md
+├── exemplos/                 # Exemplos práticos
+│   └── quickstart.md
+├── overrides/                # Templates Jinja2 customizados
+│   ├── main.html             # Template principal
+│   └── home.html             # Template da home
+├── stylesheets/              # Estilos CSS
+│   ├── yolopunk.css          # Tema ergódico base
+│   └── custom.css            # Customizações do usuário
+├── javascripts/              # Scripts JS
+│   └── yolopunk.js           # Efeitos ergódicos
+└── .pages                    # Navegação
+```
 
-The documentation should be continuously updated alongside the project's development to maintain clarity, accuracy, and usefulness for both internal developers and external users exploring the [Ultralytics Docs](https://docs.ultralytics.com/).
+## 🚀 Quick Start
 
-## 🙌 Contributing
+### Instalação
 
-Contributions to improve the documentation are welcome! Whether it's fixing typos, clarifying explanations, adding examples, or translating content, your help is valuable. Please see our [Contributing Guide](https://docs.ultralytics.com/help/contributing/) for more details on how to get started. You can also find helpful [tips for contributing to Ultralytics open-source projects](https://www.ultralytics.com/blog/tips-to-start-contributing-to-ultralytics-open-source-projects) on our blog or ask questions on the [Ultralytics Community Forums](https://community.ultralytics.com/).
+```bash
+# Instalar dependências
+pip install -r requirements-docs.txt
+```
+
+### Desenvolvimento Local
+
+```bash
+# Servir localmente com live reload
+mkdocs serve
+
+# Abrir no navegador
+# http://127.0.0.1:8000
+```
+
+### Build
+
+```bash
+# Gerar site estático
+mkdocs build
+
+# Output em: site/
+```
+
+### Deploy
+
+```bash
+# Deploy para GitHub Pages
+mkdocs gh-deploy
+```
+
+## 🎨 Customização
+
+### Cores e Tema
+
+Edite `docs/stylesheets/custom.css` para customizar:
+
+```css
+/* Suas customizações aqui */
+.md-typeset h1 {
+  color: var(--yp-blood-red);
+  border-bottom: 2px solid var(--yp-blood-red);
+}
+```
+
+### Variáveis CSS Disponíveis
+
+```css
+/* Paleta Ergódica */
+--yp-blood-red: #c41e3a;
+--yp-dark-red: #8b0000;
+--yp-deep-red: #4a0000;
+--yp-chaos-purple: #6a0dad;
+--yp-void-black: #0a0a0a;
+--yp-steel-gray: #2c2c2c;
+--yp-ash-gray: #4a4a4a;
+--yp-fog-white: #e8e8e8;
+--yp-pulse-cyan: #00ffff;
+
+/* Gradientes */
+--yp-gradient-blood: linear-gradient(135deg, var(--yp-blood-red), var(--yp-dark-red));
+--yp-gradient-chaos: linear-gradient(135deg, var(--yp-chaos-purple), var(--yp-blood-red));
+--yp-gradient-void: linear-gradient(180deg, var(--yp-void-black), var(--yp-steel-gray));
+```
+
+### Templates Jinja2
+
+Modifique `docs/overrides/main.html` para alterar estrutura:
+
+```jinja2
+{% extends "base.html" %}
+
+{% block announce %}
+  <!-- Seu conteúdo customizado -->
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+  <!-- Adicione elementos extras -->
+{% endblock %}
+```
+
+### Blocos Disponíveis
+
+- `{% block announce %}` - Barra de anúncio no topo
+- `{% block header %}` - Cabeçalho
+- `{% block hero %}` - Seção hero
+- `{% block content %}` - Conteúdo principal
+- `{% block footer %}` - Rodapé
+
+## 📝 Escrevendo Documentação
+
+### Frontmatter
+
+Adicione metadados no início dos arquivos markdown:
+
+```markdown
+---
+title: Título da Página
+description: Descrição para SEO
+ergodic: true
+chaos_level: high
+---
+
+# Conteúdo
+```
+
+### Componentes Customizados
+
+#### Grimório Header
+
+```markdown
+<div class="grimorio-header" markdown>
+
+**Título do Grimório**  
+*Subtítulo ergódico*
+
+</div>
+```
+
+#### Hero Section
+
+```markdown
+<div class="hero" markdown>
+
+## Título Grande
+
+Descrição do conteúdo.
+
+[Botão Primário](link.md){ .md-button .md-button--primary }
+[Botão Secundário](link.md){ .md-button }
+
+</div>
+```
+
+#### Cards Grid
+
+```markdown
+<div class="grid cards" markdown>
+
+-   :material-icon: **Título**
+
+    ---
+
+    Descrição do card.
+
+-   :material-icon: **Título**
+
+    ---
+
+    Descrição do card.
+
+</div>
+```
+
+#### Navigation Footer
+
+```markdown
+<div class="navigation-footer" markdown>
+
+[← Página Anterior](link.md){ .md-button }
+[Próxima Página →](link.md){ .md-button .md-button--primary }
+
+</div>
+```
+
+#### Ergodic Footer
+
+```markdown
+<div class="ergodic-footer" markdown>
+
+*"Sua frase ergódica e inspiradora aqui."*
+
+</div>
+```
+
+### Admonitions
+
+```markdown
+!!! tip "Dica"
+    Conteúdo da dica.
+
+!!! warning "Aviso"
+    Conteúdo do aviso.
+
+!!! quote "Citação"
+    Conteúdo da citação.
+```
+
+### Code Blocks
+
+```markdown
+```python title="example.py"
+from yolopunk import YoloPunk
+
+detector = YoloPunk(model="yolov8n.pt")
+\```
+```
+
+### Tabs
+
+```markdown
+=== "Python"
+
+    ```python
+    # Código Python
+    ```
+
+=== "YAML"
+
+    ```yaml
+    # Configuração YAML
+    ```
+```
+
+## 🔧 JavaScript Customizado
+
+Edite `docs/javascripts/yolopunk.js` para adicionar interações:
+
+```javascript
+// Adicione suas funções customizadas
+function myCustomFunction() {
+  // Seu código aqui
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  myCustomFunction();
+});
+```
+
+## 🌐 Publicação
+
+### GitHub Pages
+
+```bash
+# Deploy automático
+mkdocs gh-deploy
+
+# Site disponível em:
+# https://crise-ergodica.github.io/yolopunk
+```
+
+### Outras Plataformas
+
+**Netlify:**
+```bash
+# Build command
+mkdocs build
+
+# Publish directory
+site/
+```
+
+**Vercel:**
+```json
+{
+  "buildCommand": "mkdocs build",
+  "outputDirectory": "site"
+}
+```
+
+## 💡 Tips & Tricks
+
+### Live Preview com Hot Reload
+
+```bash
+mkdocs serve --dev-addr=0.0.0.0:8000
+```
+
+### Strict Mode (Build com Warnings)
+
+```bash
+mkdocs build --strict
+```
+
+### Limpar Build
+
+```bash
+rm -rf site/
+```
+
+### Validar Links
+
+```bash
+# Instalar plugin
+pip install mkdocs-linkcheck
+
+# Adicionar ao mkdocs.yml
+plugins:
+  - linkcheck
+```
+
+## 📖 Recursos
+
+- [MkDocs Documentation](https://www.mkdocs.org/)
+- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
+- [Jinja2 Documentation](https://jinja.palletsprojects.com/)
+- [Markdown Guide](https://www.markdownguide.org/)
+
+## 👥 Contribuindo
+
+Para contribuir com a documentação:
+
+1. Fork o repositório
+2. Crie sua branch (`git checkout -b docs/nova-secao`)
+3. Commit suas mudanças (`git commit -m 'docs: add nova seção'`)
+4. Push para a branch (`git push origin docs/nova-secao`)
+5. Abra um Pull Request
+
+---
+
+<div align="center">
+
+**Sangre precisão na documentação** 🩸
+
+Feito com ❤️ e caos controlado
+
+</div>

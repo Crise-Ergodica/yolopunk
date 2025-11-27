@@ -1,0 +1,17 @@
+# MkDocs Documentation Requirements
+# Install: pip install -r requirements-docs.txt
+
+# Core
+mkdocs>=1.5.0
+mkdocs-material>=9.4.0
+
+# Extensions
+pymdown-extensions>=10.3
+
+# Plugins
+mkdocs-minify-plugin>=0.7.0
+mkdocs-git-revision-date-localized-plugin>=1.2.0
+
+# Optional but recommended
+mkdocstrings[python]>=0.24.0  # Auto-generate API docs from docstrings
+mkdocs-awesome-pages-plugin>=2.9.0  # Better navigation control
