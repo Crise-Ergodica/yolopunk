@@ -8,69 +8,8 @@ repo_url: https://github.com/Crise-Ergodica/yolopunk
 edit_uri: edit/main/docs/
 
 theme:
-  name: material
-  custom_dir: docs/overrides
-  language: pt-BR
-  
-  palette:
-    # Light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: yolopunk-light
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-7
-        name: Modo escuro
-    
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: yolopunk-dark
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/brightness-4
-        name: Modo claro
-  
-  font:
-    text: Inter
-    code: JetBrains Mono
-  
-  features:
-    - navigation.instant
-    - navigation.tracking
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.path
-    - navigation.top
-    - navigation.footer
-    - search.suggest
-    - search.highlight
-    - search.share
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-    - toc.follow
-    - toc.integrate
-  
-  icon:
-    repo: fontawesome/brands/github
-    edit: material/pencil
-    view: material/eye
-
-extra_css:
-  - stylesheets/yolopunk.css
-  - stylesheets/custom.css
-
-extra_javascript:
-  - javascripts/yolopunk.js
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/Crise-Ergodica/yolopunk
-  
-  generator: false
+  name: null
+  custom_dir: docs/custom_theme
 
 markdown_extensions:
   - abbr
@@ -114,7 +53,6 @@ markdown_extensions:
 plugins:
   - search:
       lang: pt
-  - tags
 
 nav:
   - Início: index.md
