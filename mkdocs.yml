@@ -1,0 +1,128 @@
+site_name: yolopunk
+site_description: Ergodic vision detection toolkit
+site_author: Crise-Ergodica
+site_url: https://crise-ergodica.github.io/yolopunk
+
+repo_name: yolopunk
+repo_url: https://github.com/Crise-Ergodica/yolopunk
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  language: pt-BR
+  
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: yolopunk-light
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Modo escuro
+    
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: yolopunk-dark
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Modo claro
+  
+  font:
+    text: Inter
+    code: JetBrains Mono
+  
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+    - toc.integrate
+  
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+extra_css:
+  - stylesheets/yolopunk.css
+  - stylesheets/custom.css
+
+extra_javascript:
+  - javascripts/yolopunk.js
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Crise-Ergodica/yolopunk
+  
+  generator: false
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      permalink_title: Link permanente
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search:
+      lang: pt
+  - tags
+
+nav:
+  - Início: index.md
+  - Grimório:
+    - Sinopse: grimorio/sinopse.md
+    - Modo Treino: grimorio/treino.md
+    - Modo Validação: grimorio/validacao.md
+  - API Reference:
+    - Visão Geral: api/overview.md
+  - Exemplos:
+    - Começando: exemplos/quickstart.md
