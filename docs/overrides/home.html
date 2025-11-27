@@ -1,0 +1,35 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+  
+  <style>
+    .md-header {
+      background: linear-gradient(135deg, var(--md-primary-fg-color), var(--md-accent-fg-color));
+    }
+    
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #c41e3a, #8b0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--md-default-fg-color--light);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  {{ super() }}
+{% endblock %}
