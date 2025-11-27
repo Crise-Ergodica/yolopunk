@@ -1,13 +1,13 @@
-# yolopunk
-
 <div class="hero" markdown>
 
-## Ergodic Vision Detection Toolkit
+<img src="docs/img/yolopunk_titulo.png" width="640" alt="YOLOPunk Logo">
 
-Ferramentas de visão computacional que sangram precisão.
+###### _sǝɐ̰ɥןɐƃɐW ˙Ɔ ˙ᗡ ɐɹoɹn∀ - 5202/11/52 ǝpsǝp soʇuıɹıqɐן sop ɐsɐɔ ɐu opuɐɹʇuƎ_
 
-[Começar](exemplos/quickstart.md){ .md-button .md-button--primary }
-[Grimório](grimorio/sinopse.md){ .md-button }
+![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge) 
+![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
+![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
+![Docs](https://img.shields.io/badge/📖_Docs-MkDocs-c41e3a.svg?style=for-the-badge)
 
 </div>
 
