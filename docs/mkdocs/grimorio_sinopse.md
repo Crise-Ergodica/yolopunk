@@ -10,5 +10,5 @@ atualizado e compartilhado)
 
 ---
 
- - [Modo Treino](grimorio_modo_treino)
+ - [Modo Treino](grimorio_modo_treino.md)
  

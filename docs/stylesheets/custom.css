@@ -36,3 +36,6 @@
   background: rgba(106, 13, 173, 0.05);
 }
 */
+.md-typeset .headerlink {
+  display: none;
+}
