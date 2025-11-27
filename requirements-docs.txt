@@ -13,5 +13,5 @@ mkdocs-minify-plugin>=0.7.0
 mkdocs-git-revision-date-localized-plugin>=1.2.0
 
 # Optional but recommended
-mkdocstrings[python]>=0.24.0  # Auto-generate API docs from docstrings
-mkdocs-awesome-pages-plugin>=2.9.0  # Better navigation control
+mkdocstrings[python]>=0.24.0 # Auto-generate API docs from docstrings
+mkdocs-awesome-pages-plugin>=2.9.0 # Better navigation control
