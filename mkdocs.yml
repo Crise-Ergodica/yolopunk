@@ -127,3 +127,4 @@ nav:
   - Exemplos:
     - Começando: exemplos/quickstart.md
     - Componentes: exemplos/componentes.md
+    - Customização Jinja2: exemplos/customizacao-jinja2.md
