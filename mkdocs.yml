@@ -126,3 +126,4 @@ nav:
     - Visão Geral: api/overview.md
   - Exemplos:
     - Começando: exemplos/quickstart.md
+    - Componentes: exemplos/componentes.md
