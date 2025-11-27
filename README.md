@@ -10,7 +10,7 @@
 
 </div>
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝐌𝐀𝐍𝐈𝐅𝐄𝐒𝐓𝐎 DO CÓDIGO
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝔐𝔞𝔫𝔦𝔣𝔢𝔰𝔱𝔬 𝔡𝔬 ℭ𝔬𝔡𝔦𝔤𝔬
 **YOLOPunk** é o anti-framework.  
 O código foi escrito com o objetivo de perpetuar o formato ergodico antes do conteudo.  
 Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clareira, só corredores.
@@ -23,15 +23,11 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 
 ---
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> GRIMÓRIO ERGÓDICO (Documentação)
+## <img src="docs/img/pentagrama_icone.svg" width="26">𝔊𝔯𝔦𝔪𝔬𝔯𝔦𝔬 𝔈𝔯𝔤𝔬𝔡𝔦𝔠𝔬 ᵈᵒᶜᵘᵐᵉⁿᵗᵃᶜᵃᵒ
 
-**A documentação vive. Sangra. Converge.**
+**A documentação vive. Sangra. Converge. E pode ser [INVOCADO](https://yolopunk.github.io)**.
 
-### 📖 Acesse o Grimório
-
-👉 **[yolopunk.github.io](https://crise-ergodica.github.io/yolopunk)** 👈
-
-Ou construa localmente:
+...ou construído localmente:
 
 ```bash
 # Instale dependências
@@ -43,25 +39,9 @@ mkdocs serve
 # Acesse: http://127.0.0.1:8000
 ```
 
-### 🎨 Features da Documentação
-
-- **Tema Ergódico Customizado** - Vermelho sangue com design moderno
-- **Templates Jinja2** - Controle total sobre cada elemento
-- **Componentes Reutilizáveis** - Cards, heroes, footers, admonitions
-- **Dark Mode Nativo** - Modo claro e escuro com cores harmônicas
-- **Mobile Responsive** - Perfeito em qualquer dispositivo
-- **Busca Inteligente** - Encontre qualquer informação rapidamente
-- **Code Highlighting** - Syntax highlighting para Python, YAML, Bash
-
 ### 📚 Estrutura do Grimório
 
-- **Início** - Overview do projeto
-- **Grimório** - Documentação profunda
-  - Sinopse - Introdução à filosofia ergódica
-  - Modo Treino - Pipeline completa de treinamento
-  - Modo Validação - Métricas e análise de erros
-- **API Reference** - Referência completa da API
-- **Exemplos** - Quick start, componentes, customização Jinja2
+INCOMPLETO
 
 ### 🛠️ Customização
 
@@ -91,7 +71,7 @@ Veja [docs/README.md](docs/README.md) para guia completo de customização.
 
 ---
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> ESTRUTURA DO 𝙔𝙊𝙇𝙊𝙋𝙐𝙉𝙆
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝔐𝔞𝔭𝔞 𝔡𝔢  𝙔𝙊𝙇𝙊𝙋𝙐𝙉𝙆
 
 ```plaintext
 yolopunk/
@@ -132,13 +112,7 @@ yolopunk/
 
 ---
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> ЯIƬӨ DE INSTALAÇÃO
-
-INCOMPLETO
-
----
-
-## <img src="docs/img/pentagrama_icone.svg" width="26"> PRIMEIRO 𝙲𝙾𝙽𝚃𝙰𝚃𝙾
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 𝔓𝔯𝔦𝔪𝔢𝔦𝔯𝔬 ℭ𝔬𝔫𝔱𝔞𝔱𝔬
 
 INCOMPLETO
 
