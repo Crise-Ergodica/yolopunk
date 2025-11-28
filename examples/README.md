@@ -61,7 +61,7 @@ def main():
     detector = Vision("yolov8n.pt")
     results = detector.detect("sua_imagem.jpg")
 
-    # Analyse os resultados
+    # Analyze os resultados
     for box in results[0].boxes:
         print(f"Objeto: {results[0].names[int(box.cls[0])]}")
 

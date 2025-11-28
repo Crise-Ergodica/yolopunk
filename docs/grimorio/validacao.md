@@ -32,7 +32,6 @@ metrics = validator.validate()
 ### Confusion Matrix
 
 ```python
-
 cm = validator.confusion_matrix()
 cm.plot(save_dir="plots/", normalize=True)
 ```

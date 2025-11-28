@@ -231,14 +231,16 @@ Conteúdo da citação.
 
 ### Code Blocks
 
-````markdown
+`````markdown
 ````python title="example.py"
 from yolopunk import YoloPunk
 
 detector = YoloPunk(model="yolov8n.pt")
 \```
 ````
-````
+`````
+
+`````
 
 ### Tabs
 
@@ -254,7 +256,7 @@ detector = YoloPunk(model="yolov8n.pt")
     ```yaml
     # Configuração YAML
     ```
-````
+`````
 
 ## 🔧 JavaScript Customizado
 

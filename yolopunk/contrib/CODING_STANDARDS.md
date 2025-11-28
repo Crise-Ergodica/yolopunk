@@ -54,9 +54,10 @@ def calculate_metrics(data: List[float]) -> Dict[str, float]:
     mean_value = sum(data) / len(data)
     return {"mean": mean_value}
 
+
 # ❌ Wrong: tabs or 2 spaces
 def calculate_metrics(data):
-	return {"mean": sum(data) / len(data)}
+    return {"mean": sum(data) / len(data)}
 ```
 
 ```python
@@ -76,24 +77,13 @@ result = some_function(argument1, argument2, argument3, argument4, argument5, ar
 ```python
 # ✅ Correct: Organized imports
 # Standard library
-import os
-import sys
-from pathlib import Path
 
 # Third-party
-import numpy as np
-from ultralytics import YOLO
 
 # Local
-from yolopunk.core import BaseTrainer
-from yolopunk.utils import validate_path
 
 
 # ❌ Wrong: Mixed order
-from yolopunk.core import BaseTrainer
-import os
-from ultralytics import YOLO
-import sys
 ```
 
 #### Naming Conventions
@@ -102,7 +92,7 @@ import sys
 # ✅ Correct naming
 class YOLOClassificationTrainer:  # PascalCase for classes
     """YOLO classification trainer."""
-    
+
     def train_model(self) -> None:  # snake_case for methods
         """Train the model."""
         num_epochs = 10  # snake_case for variables
@@ -124,17 +114,19 @@ def function(arg1: int, arg2: str) -> bool:
     result = arg1 + 10
     return result > 0
 
+
 my_list = [1, 2, 3, 4]
 my_dict = {"key": "value"}
 
 
 # ❌ Wrong spacing
-def function(arg1:int,arg2:str)->bool:
-    result=arg1+10
-    return result>0
+def function(arg1: int, arg2: str) -> bool:
+    result = arg1 + 10
+    return result > 0
 
-my_list=[1,2,3,4]
-my_dict={"key":"value"}
+
+my_list = [1, 2, 3, 4]
+my_dict = {"key": "value"}
 ```
 
 ---
@@ -164,15 +156,13 @@ Typical Usage Example:
 class YOLOClassificationTrainer:
     """High-level trainer for YOLO classification models.
 
-    This class handles dataset preparation, model training, and inference
-    for YOLO classification tasks.
+    This class handles dataset preparation, model training, and inference for YOLO classification tasks.
 
     Attributes:
         image_folder: Tuple containing (path_folder, name_folder).
         percentual_data_divisor: Percentage of data allocated to test set.
         predict_object: Input object for prediction.
-
-    Typical Usage Example:
+        Typical Usage Example:
         >>> trainer = YOLOClassificationTrainer()
         >>> trainer.image_folder = ("data/cats", "cats")
         >>> trainer.train_model()
@@ -208,12 +198,8 @@ def train_model(
         FileNotFoundError: If model weights not found.
         RuntimeError: If CUDA requested but not available.
 
-    Example:
-        >>> trainer.train_model(
-        ...     model_path="yolov8m-cls.pt",
-        ...     epochs=100,
-        ...     device="cuda"
-        ... )
+    Examples:
+        >>> trainer.train_model(model_path="yolov8m-cls.pt", epochs=100, device="cuda")
     """
 ```
 
@@ -225,12 +211,13 @@ def train_model(
 
 ```python
 # ✅ Correct type hints
-from typing import List, Dict, Optional, Union, Tuple, Any
+from typing import Optional
+
 
 def process_data(
-    data: List[float],
+    data: list[float],
     threshold: Optional[float] = None,
-) -> Dict[str, float]:
+) -> dict[str, float]:
     """Process numerical data."""
     if threshold is None:
         threshold = 0.5
@@ -249,24 +236,25 @@ def process_data(data, threshold=None):
 
 ```python
 # ✅ Correct: Complex type hints
-from typing import List, Dict, Optional, Tuple, Union
 from pathlib import Path
+from typing import Union
+
 
 def load_dataset(
     path: Union[str, Path],
-    split_ratio: Tuple[float, float] = (0.8, 0.2),
-) -> Tuple[List[str], List[str]]:
+    split_ratio: tuple[float, float] = (0.8, 0.2),
+) -> tuple[list[str], list[str]]:
     """Load and split dataset.
-    
+
     Args:
         path: Path to dataset directory.
         split_ratio: Train/test split ratio.
-    
+
     Returns:
         Tuple of (train_files, test_files).
     """
-    train_files: List[str] = []
-    test_files: List[str] = []
+    train_files: list[str] = []
+    test_files: list[str] = []
     return train_files, test_files
 ```
 
@@ -276,16 +264,16 @@ def load_dataset(
 # ✅ Correct: Type hints for properties
 class Trainer:
     """Model trainer."""
-    
+
     def __init__(self) -> None:
         """Initialize trainer."""
         self._epochs: int = 10
-    
+
     @property
     def epochs(self) -> int:
         """Get number of training epochs."""
         return self._epochs
-    
+
     @epochs.setter
     def epochs(self, value: int) -> None:
         """Set number of training epochs."""
@@ -302,24 +290,20 @@ class Trainer:
 """Example module demonstrating all coding standards."""
 
 import os
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Union
+from typing import Optional
 
-import numpy as np
 from ultralytics import YOLO
 
 
 class ExampleTrainer:
     """Example trainer demonstrating coding standards.
 
-    This class demonstrates proper implementation of all coding standards
-    including PEP 8, PEP 257, and PEP 484.
+    This class demonstrates proper implementation of all coding standards including PEP 8, PEP 257, and PEP 484.
 
     Attributes:
         model_path: Path to model weights.
         device: Training device ("cuda", "cpu", "mps").
-
-    Typical Usage Example:
+        Typical Usage Example:
         >>> trainer = ExampleTrainer(model_path="yolov8m.pt")
         >>> results = trainer.train(epochs=100)
     """
@@ -364,9 +348,7 @@ class ExampleTrainer:
             FileNotFoundError: If model file not found.
         """
         if not os.path.exists(self._model_path):
-            raise FileNotFoundError(
-                f"Model not found: {self._model_path}"
-            )
+            raise FileNotFoundError(f"Model not found: {self._model_path}")
         self._model = YOLO(self._model_path)
 
     def train(
@@ -374,7 +356,7 @@ class ExampleTrainer:
         data_path: str,
         epochs: int = 10,
         img_size: int = 640,
-    ) -> Dict[str, float]:
+    ) -> dict[str, float]:
         """Train the model.
 
         Args:
@@ -389,12 +371,9 @@ class ExampleTrainer:
             ValueError: If model not loaded.
             RuntimeError: If training fails.
 
-        Example:
+        Examples:
             >>> trainer.load_model()
-            >>> results = trainer.train(
-            ...     data_path="data/dataset.yaml",
-            ...     epochs=100
-            ... )
+            >>> results = trainer.train(data_path="data/dataset.yaml", epochs=100)
         """
         if self._model is None:
             raise ValueError("Model not loaded. Call load_model() first.")
@@ -408,7 +387,7 @@ class ExampleTrainer:
 
         return self._extract_metrics(results)
 
-    def _extract_metrics(self, results: Any) -> Dict[str, float]:
+    def _extract_metrics(self, results: Any) -> dict[str, float]:
         """Extract metrics from training results.
 
         Args:
@@ -428,6 +407,7 @@ class ExampleTrainer:
 Use this checklist when reviewing code or preparing a pull request:
 
 ### PEP 8
+
 - [ ] 4-space indentation (no tabs)
 - [ ] Max 79 characters per line for code
 - [ ] Max 72 characters per line for docstrings
@@ -440,6 +420,7 @@ Use this checklist when reviewing code or preparing a pull request:
 - [ ] One blank line between method definitions
 
 ### PEP 257
+
 - [ ] Module docstring present
 - [ ] Class docstring present
 - [ ] All public functions have docstrings
@@ -450,6 +431,7 @@ Use this checklist when reviewing code or preparing a pull request:
 - [ ] Examples provided where helpful
 
 ### PEP 484
+
 - [ ] Type hints on all function parameters
 - [ ] Type hints on all return values
 - [ ] `Optional` used for nullable types
@@ -458,12 +440,14 @@ Use this checklist when reviewing code or preparing a pull request:
 - [ ] Type hints for class attributes
 
 ### Language
+
 - [ ] All code in English
 - [ ] All comments in English
 - [ ] All docstrings in English
 - [ ] No Portuguese in code elements
 
 ### Documentation
+
 - [ ] README updated if needed
 - [ ] Examples are clear and working
 - [ ] No broken links
@@ -562,18 +546,21 @@ results = model.train(
 ### Recommended Tools
 
 1. **black** (Code Formatter)
+
    ```bash
    pip install black
    black yolopunk/contrib/
    ```
 
 2. **flake8** (Linter)
+
    ```bash
    pip install flake8
    flake8 yolopunk/contrib/ --max-line-length=79
    ```
 
 3. **mypy** (Type Checker)
+
    ```bash
    pip install mypy
    mypy yolopunk/contrib/
@@ -601,7 +588,7 @@ repos:
     rev: 7.0.0
     hooks:
       - id: flake8
-        args: ['--max-line-length=79']
+        args: ["--max-line-length=79"]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.8.0
