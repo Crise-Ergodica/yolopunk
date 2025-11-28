@@ -70,19 +70,11 @@ trainer.percentual_data_divisor = 20
 trainer.slicing_dataset_for_training()
 
 # Train model
-results = trainer.training_yolo_model(
-    yolo_model="yolov8m-cls.pt",
-    num_epochs=100,
-    img_size=640,
-    training_device="cuda"
-)
+results = trainer.training_yolo_model(yolo_model="yolov8m-cls.pt", num_epochs=100, img_size=640, training_device="cuda")
 
 # Make predictions
 trainer.predict_object = "test_images/cat.jpg"
-predictions = trainer.predict_yolo_model(
-    yolo_model="runs/classify/train/weights/best.pt",
-    predict_confidence=0.8
-)
+predictions = trainer.predict_yolo_model(yolo_model="runs/classify/train/weights/best.pt", predict_confidence=0.8)
 ```
 
 ---
@@ -97,12 +89,14 @@ predictions = trainer.predict_yolo_model(
    - Learn Google Style Guide for docstrings
 
 2. **Create Your Author Directory**
+
    ```bash
    mkdir yolopunk/contrib/your_name
    cd yolopunk/contrib/your_name
    ```
 
 3. **Initialize Your Module**
+
    ```python
    # yolopunk/contrib/your_name/__init__.py
    """Your Name's Contributions to YOLOPunk.
@@ -116,14 +110,13 @@ predictions = trainer.predict_yolo_model(
        AGPL-3.0 (compatible with YOLOPunk)
    """
 
-   from typing import List
 
    from .your_module import YourClass
 
    __version__: str = "0.1.0"
    __author__: str = "Your Name"
 
-   __all__: List[str] = [
+   __all__: list[str] = [
        "YourClass",
    ]
    ```
@@ -135,6 +128,7 @@ predictions = trainer.predict_yolo_model(
    - Include usage examples
 
 5. **Register Your Module**
+
    ```python
    # yolopunk/contrib/__init__.py
    __all__: List[str] = [
@@ -153,10 +147,12 @@ predictions = trainer.predict_yolo_model(
 ## Coding Standards Summary
 
 ### Language
+
 - ✅ **Code**: English (variables, functions, classes, comments, docstrings)
 - ✅ **Documentation**: Portuguese (README, user guides)
 
 ### PEP 8 - Style Guide
+
 - 4-space indentation
 - 79 character line limit (code)
 - 72 character line limit (docstrings)
@@ -166,16 +162,19 @@ predictions = trainer.predict_yolo_model(
 - `UPPER_CASE` for constants
 
 ### PEP 257 - Docstrings
+
 - Mandatory for all public modules, classes, functions
 - Google Style Guide format
 - Include Args, Returns, Raises, Examples sections
 
 ### PEP 484 - Type Hints
+
 - Type hints on all function signatures
 - Use `typing` module for complex types
 - Explicit return types (including `None`)
 
 ### Google Style Guide
+
 - Structured docstrings
 - Clear parameter descriptions
 - Usage examples in docstrings
@@ -237,6 +236,7 @@ Each module should have a clear, focused purpose:
 ### 2. Comprehensive Documentation
 
 Include:
+
 - Module-level docstring
 - Class docstrings with attributes
 - Method docstrings with Args/Returns/Raises
@@ -262,7 +262,7 @@ Document all exceptions:
 ```python
 def load_model(path: str) -> YOLO:
     """Load YOLO model.
-    
+
     Raises:
         FileNotFoundError: If model file not found.
         ValueError: If model file corrupted.
@@ -276,8 +276,8 @@ Provide working examples:
 ```python
 def calculate_metrics(data: List[float]) -> Dict[str, float]:
     """Calculate statistics.
-    
-    Example:
+
+    Examples:
         >>> data = [1.0, 2.0, 3.0, 4.0, 5.0]
         >>> metrics = calculate_metrics(data)
         >>> metrics["mean"]
@@ -311,11 +311,13 @@ pylint yolopunk/contrib/your_name/
 ### IDE Configuration
 
 **PyCharm**:
+
 - Enable "PEP 8 coding style violation" inspection
 - Set line width to 79 characters
 - Enable type hint checking
 
 **VS Code**:
+
 ```json
 {
   "python.linting.enabled": true,
