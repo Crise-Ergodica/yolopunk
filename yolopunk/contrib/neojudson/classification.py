@@ -1,4 +1,8 @@
-"""
+"""Neojudson Classification Module - YOLO Classification Training.
+
+This module provides high-level operations for YOLO classification models,
+including dataset preparation, model training, and inference.
+
                   ██████   █████ ██████████    ███████
                  ▒▒██████ ▒▒███ ▒▒███▒▒▒▒▒█  ███▒▒▒▒▒███
                   ▒███▒███ ▒███  ▒███  █ ▒  ███     ▒▒███
@@ -21,27 +25,22 @@
          ███ ▒███
         ▒▒██████
          ▒▒▒▒▒▒
-
-Neojudson Classification Module - YOLO Classification Training.
-
-This module provides high-level operations for YOLO classification models,
-including dataset preparation, model training, and inference.
 """
 
-from typing import Any, Optional, Union
-from pathlib import Path
-import doctest
-from ultralytics import YOLO
-import shutil
 import os
-import re
+import shutil
+from pathlib import Path
+from typing import Any, List, Optional, Tuple, Union
+
+from ultralytics import YOLO
+
 
 class YOLOClassificationTrainer:
     """High-level trainer for YOLO classification models.
 
     This class handles dataset preparation, model training, and inference
     for YOLO classification tasks. It manages directory structures compatible
-    with Ultralytics YOLO framework and provides methods for the complete
+    with the Ultralytics YOLO framework and provides methods for the complete
     training pipeline.
 
     The class assumes external configuration of auxiliary attributes like
@@ -56,7 +55,7 @@ class YOLOClassificationTrainer:
         predict_object: Input object for prediction (image path, folder path,
             or list of paths).
 
-    Example:
+    Typical Usage Example:
         >>> trainer = YOLOClassificationTrainer()
         >>> trainer.image_folder = ("data/cats", "cats")
         >>> trainer.percentual_data_divisor = 20
@@ -66,23 +65,23 @@ class YOLOClassificationTrainer:
 
     def __init__(self) -> None:
         """Initialize the trainer with default attribute values."""
-        self._image_folder: Optional[tuple[str, str]] = None
+        self._image_folder: Optional[Tuple[str, str]] = None
         self._percentual_data_divisor: Optional[Union[int, float]] = None
         self._predict_object: Any = None
 
     @property
-    def image_folder(self) -> Optional[tuple[str, str]]:
+    def image_folder(self) -> Optional[Tuple[str, str]]:
         """Get the image folder configuration.
 
         Returns:
             Tuple containing (path_folder, name_folder) or None if not set.
-                path_folder: Path to directory containing images.
-                name_folder: Label name used in dataset structure.
+            - path_folder: Path to directory containing images.
+            - name_folder: Label name used in dataset structure.
         """
         return self._image_folder
 
     @image_folder.setter
-    def image_folder(self, folder: Optional[tuple[str, str]]) -> None:
+    def image_folder(self, folder: Optional[Tuple[str, str]]) -> None:
         """Set the image folder configuration.
 
         Args:
@@ -134,9 +133,9 @@ class YOLOClassificationTrainer:
 
         Args:
             obj: Input for prediction. Accepts:
-                - Path to single image file
-                - Path to directory of images
-                - List of image paths
+                - Path to single image file (str or Path)
+                - Path to directory of images (str or Path)
+                - List of image paths (List[str] or List[Path])
                 - Any other format supported by YOLO.predict()
 
         Example:
@@ -160,13 +159,14 @@ class YOLOClassificationTrainer:
 
         Note:
             This method expects external configuration of:
-            - self.yolo_classes_path (optional): Path to classes.txt
-            - self.yolo_notes_path (optional): Path to notes.json
-            - self.test_percentual_divisor (optional): Alternative to
-              percentual_data_divisor for legacy compatibility
+                - self.yolo_classes_path (optional): Path to classes.txt
+                - self.yolo_notes_path (optional): Path to notes.json
+                - self.test_percentual_divisor (optional): Alternative to
+                  percentual_data_divisor for legacy compatibility
 
         Raises:
-            May raise FileNotFoundError if source directories don't exist.
+            FileNotFoundError: If source directories don't exist.
+            PermissionError: If lacking write permissions for destination.
 
         Example:
             >>> trainer.image_folder = ("raw_data/cats", "cats")
@@ -174,16 +174,20 @@ class YOLOClassificationTrainer:
             >>> trainer.yolo_classes_path = "config/classes.txt"
             >>> trainer.slicing_dataset_for_training()
         """
-        list_archives = [self.image_folder]
-        yolo_dataset_dir = "datasets/dataset_YOLO"
+        list_archives: List[Optional[Tuple[str, str]]] = [self.image_folder]
+        yolo_dataset_dir: str = "datasets/dataset_YOLO"
         os.makedirs(yolo_dataset_dir, exist_ok=True)
 
         # Copy auxiliary files if configured
-        if getattr(self, "yolo_classes_path", None):
-            shutil.copy(self.yolo_classes_path, yolo_dataset_dir)
+        yolo_classes_path: Optional[str] = getattr(
+            self, "yolo_classes_path", None
+        )
+        if yolo_classes_path:
+            shutil.copy(yolo_classes_path, yolo_dataset_dir)
 
-        if getattr(self, "yolo_notes_path", None):
-            shutil.copy(self.yolo_notes_path, yolo_dataset_dir)
+        yolo_notes_path: Optional[str] = getattr(self, "yolo_notes_path", None)
+        if yolo_notes_path:
+            shutil.copy(yolo_notes_path, yolo_dataset_dir)
 
         # Process each image folder
         for folder in list_archives:
@@ -191,17 +195,18 @@ class YOLOClassificationTrainer:
                 continue
 
             path_folder, name_folder = folder
-            all_files = [
-                f for f in os.listdir(path_folder)
+            all_files: List[str] = [
+                f
+                for f in os.listdir(path_folder)
                 if os.path.isfile(os.path.join(path_folder, f))
             ]
 
-            total_files = len(all_files)
+            total_files: int = len(all_files)
             if total_files == 0:
                 continue
 
             # Determine test percentage
-            test_percentual = getattr(
+            test_percentual: Union[int, float] = getattr(
                 self,
                 "test_percentual_divisor",
                 self.percentual_data_divisor,
@@ -211,27 +216,27 @@ class YOLOClassificationTrainer:
                 test_percentual = 20
 
             # Calculate split sizes
-            num_test = int(total_files * (float(test_percentual) / 100.0))
-            num_train = total_files - num_test
+            num_test: int = int(total_files * (float(test_percentual) / 100.0))
+            num_train: int = total_files - num_test
 
-            counter = 0
+            counter: int = 0
 
             # Create output directories
-            train_dir = os.path.join(yolo_dataset_dir, name_folder, "train")
-            test_dir = os.path.join(yolo_dataset_dir, name_folder, "test")
+            train_dir: str = os.path.join(yolo_dataset_dir, name_folder, "train")
+            test_dir: str = os.path.join(yolo_dataset_dir, name_folder, "test")
             os.makedirs(train_dir, exist_ok=True)
             os.makedirs(test_dir, exist_ok=True)
 
             # Copy files to train or test
             for file_name in all_files:
-                src_path = os.path.join(path_folder, file_name)
+                src_path: str = os.path.join(path_folder, file_name)
 
                 if counter < num_train:
-                    destination_dir = train_dir
+                    destination_dir: str = train_dir
                 else:
                     destination_dir = test_dir
 
-                dst_path = os.path.join(destination_dir, file_name)
+                dst_path: str = os.path.join(destination_dir, file_name)
                 shutil.copy(src_path, dst_path)
                 counter += 1
 
@@ -250,15 +255,27 @@ class YOLOClassificationTrainer:
 
         Args:
             yolo_model: Path or name of pre-trained weights file.
-                Common options: "yolov8n-cls.pt", "yolov8s-cls.pt",
-                "yolov8m-cls.pt", "yolov8l-cls.pt", "yolov8x-cls.pt".
+                Common options:
+                    - "yolov8n-cls.pt" (nano)
+                    - "yolov8s-cls.pt" (small)
+                    - "yolov8m-cls.pt" (medium)
+                    - "yolov8l-cls.pt" (large)
+                    - "yolov8x-cls.pt" (extra large)
             num_epochs: Number of training epochs.
-            img_size: Input image size (square dimension).
-            training_device: Device for training ("cuda", "cpu", "mps", etc.).
+            img_size: Input image size (square dimension in pixels).
+            training_device: Device for training. Options:
+                - "cuda" for NVIDIA GPU
+                - "cpu" for CPU
+                - "mps" for Apple Silicon
+                - Integer for specific GPU (e.g., 0, 1)
 
         Returns:
             Training results object from Ultralytics YOLO containing
             metrics, losses, and training statistics.
+
+        Raises:
+            FileNotFoundError: If model weights or dataset.yaml not found.
+            RuntimeError: If CUDA requested but not available.
 
         Example:
             >>> results = trainer.training_yolo_model(
@@ -268,9 +285,9 @@ class YOLOClassificationTrainer:
             ...     training_device="cuda"
             ... )
         """
-        model = YOLO(yolo_model)
+        model: YOLO = YOLO(yolo_model)
 
-        results = model.train(
+        results: Any = model.train(
             data="datasets/dataset_YOLO/dataset.yaml",
             epochs=num_epochs,
             imgsz=img_size,
@@ -296,13 +313,17 @@ class YOLOClassificationTrainer:
                 Ultralytics default output structure for classification.
             save_predict: Whether to save prediction results and visualizations
                 to disk.
-            img_size: Input image size for inference.
+            img_size: Input image size for inference (square dimension in pixels).
             predict_confidence: Minimum confidence threshold for predictions.
                 Predictions below this threshold may be filtered.
 
         Returns:
             Prediction results object from Ultralytics YOLO containing
             predicted classes, confidence scores, and other inference data.
+
+        Raises:
+            FileNotFoundError: If model weights not found.
+            ValueError: If predict_object not set.
 
         Example:
             >>> trainer.predict_object = "test_images/cat.jpg"
@@ -312,9 +333,9 @@ class YOLOClassificationTrainer:
             ...     predict_confidence=0.8
             ... )
         """
-        model = YOLO(yolo_model)
+        model: YOLO = YOLO(yolo_model)
 
-        results = model.predict(
+        results: Any = model.predict(
             self.predict_object,
             save=save_predict,
             imgsz=img_size,
