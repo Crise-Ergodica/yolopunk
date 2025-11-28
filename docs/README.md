@@ -80,8 +80,8 @@ Edite `docs/stylesheets/custom.css` para customizar:
 ```css
 /* Suas customizações aqui */
 .md-typeset h1 {
-  color: var(--yp-blood-red);
-  border-bottom: 2px solid var(--yp-blood-red);
+    color: var(--yp-blood-red);
+    border-bottom: 2px solid var(--yp-blood-red);
 }
 ```
 
@@ -147,7 +147,7 @@ chaos_level: high
 # Conteúdo
 ```
 
-### Componentes Customizados
+### Components Customizados
 
 #### Grimório Header
 
@@ -155,7 +155,7 @@ chaos_level: high
 <div class="grimorio-header" markdown>
 
 **Título do Grimório**  
-*Subtítulo ergódico*
+_Subtítulo ergódico_
 
 </div>
 ```
@@ -180,15 +180,15 @@ Descrição do conteúdo.
 ```markdown
 <div class="grid cards" markdown>
 
--   :material-icon: **Título**
+- :material-icon: **Título**
 
-    ---
+    ***
 
     Descrição do card.
 
--   :material-icon: **Título**
+- :material-icon: **Título**
 
-    ---
+    ***
 
     Descrição do card.
 
@@ -211,7 +211,7 @@ Descrição do conteúdo.
 ```markdown
 <div class="ergodic-footer" markdown>
 
-*"Sua frase ergódica e inspiradora aqui."*
+_"Sua frase ergódica e inspiradora aqui."_
 
 </div>
 ```
@@ -220,28 +220,31 @@ Descrição do conteúdo.
 
 ```markdown
 !!! tip "Dica"
-    Conteúdo da dica.
+Conteúdo da dica.
 
 !!! warning "Aviso"
-    Conteúdo do aviso.
+Conteúdo do aviso.
 
 !!! quote "Citação"
-    Conteúdo da citação.
+Conteúdo da citação.
 ```
 
 ### Code Blocks
 
-```markdown
-```python title="example.py"
+`````markdown
+````python title="example.py"
 from yolopunk import YoloPunk
 
 detector = YoloPunk(model="yolov8n.pt")
 \```
-```
+````
+`````
+
+`````
 
 ### Tabs
 
-```markdown
+````markdown
 === "Python"
 
     ```python
@@ -253,7 +256,7 @@ detector = YoloPunk(model="yolov8n.pt")
     ```yaml
     # Configuração YAML
     ```
-```
+`````
 
 ## 🔧 JavaScript Customizado
 
@@ -262,11 +265,11 @@ Edite `docs/javascripts/yolopunk.js` para adicionar interações:
 ```javascript
 // Adicione suas funções customizadas
 function myCustomFunction() {
-  // Seu código aqui
+    // Seu código aqui
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  myCustomFunction();
+document.addEventListener("DOMContentLoaded", function () {
+    myCustomFunction();
 });
 ```
 
@@ -285,6 +288,7 @@ mkdocs gh-deploy
 ### Outras Plataformas
 
 **Netlify:**
+
 ```bash
 # Build command
 mkdocs build
@@ -294,10 +298,11 @@ site/
 ```
 
 **Vercel:**
+
 ```json
 {
-  "buildCommand": "mkdocs build",
-  "outputDirectory": "site"
+    "buildCommand": "mkdocs build",
+    "outputDirectory": "site"
 }
 ```
 
@@ -329,7 +334,7 @@ pip install mkdocs-linkcheck
 
 # Adicionar ao mkdocs.yml
 plugins:
-  - linkcheck
+- linkcheck
 ```
 
 ## 📖 Recursos

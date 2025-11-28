@@ -7,7 +7,7 @@
 git clone https://github.com/Crise-Ergodica/yolopunk.git
 cd yolopunk
 
-# 2. Instale as dependências de documentação
+# 2. Install as dependências de documentação
 pip install -r requirements-docs.txt
 
 # 3. Inicie o servidor de desenvolvimento
@@ -32,9 +32,9 @@ Edite `mkdocs.yml`:
 
 ```yaml
 nav:
-  - Grimório:
-    - Sinopse: grimorio/sinopse.md
-    - Nova Seção: grimorio/nova-secao.md  # Adicione aqui
+    - Grimório:
+          - Sinopse: grimorio/sinopse.md
+          - Nova Seção: grimorio/nova-secao.md # Adicione aqui
 ```
 
 ### 3. Preview em Tempo Real
@@ -90,14 +90,14 @@ Edite `docs/stylesheets/custom.css`:
 ```css
 /* Exemplo: mudar cor dos headings */
 .md-typeset h1 {
-  color: var(--yp-blood-red);
-  border-bottom: 2px solid var(--yp-blood-red);
+    color: var(--yp-blood-red);
+    border-bottom: 2px solid var(--yp-blood-red);
 }
 
 /* Exemplo: customizar cards */
 .md-typeset .grid.cards > ol > li:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--yp-shadow-void);
+    transform: translateY(-5px);
+    box-shadow: var(--yp-shadow-void);
 }
 ```
 
@@ -119,18 +119,19 @@ Edite `docs/overrides/main.html`:
 Edite `docs/javascripts/yolopunk.js`:
 
 ```javascript
-document.addEventListener('DOMContentLoaded', function() {
-  // Seu código aqui
+document.addEventListener("DOMContentLoaded", function () {
+    // Seu código aqui
 });
 ```
 
-## Componentes Disponíveis
+## Components Disponíveis
 
-Veja a [página de componentes](exemplos/componentes.md) para todos os elementos visuais disponíveis.
+Veja a [página de components](exemplos/components.md) para todos os elementos visuais disponíveis.
 
 ### Quick Reference
 
 **Hero:**
+
 ```markdown
 <div class="hero" markdown>
 ## Título
@@ -139,6 +140,7 @@ Descrição
 ```
 
 **Cards:**
+
 ```markdown
 <div class="grid cards" markdown>
 -   :material-icon: **Título**
@@ -148,6 +150,7 @@ Descrição
 ```
 
 **Grimório Header:**
+
 ```markdown
 <div class="grimorio-header" markdown>
 **Título**  
@@ -156,6 +159,7 @@ Descrição
 ```
 
 **Navigation Footer:**
+
 ```markdown
 <div class="navigation-footer" markdown>
 [← Anterior](link.md){ .md-button }
@@ -202,6 +206,7 @@ O repositório tem GitHub Actions configurado em `.github/workflows/docs.yml`.
 ### Trigger Automático
 
 Deploy automático quando:
+
 - Push para `main` afetando `docs/**` ou `mkdocs.yml`
 - Pull request modificando documentação
 
@@ -221,7 +226,7 @@ Abra várias abas do navegador - todas atualizam simultaneamente.
 
 ### 2. Strict Mode
 
-Sempre use `--strict` em CI/CD para pegar erros cedo:
+Sempre use `--strict` em CI/CD para pegar errors cedo:
 
 ```yaml
 - name: Build documentation
@@ -230,7 +235,7 @@ Sempre use `--strict` em CI/CD para pegar erros cedo:
 
 ### 3. Link Check
 
-Instale plugin para validar links:
+Install plugin para validar links:
 
 ```bash
 pip install mkdocs-linkcheck
@@ -240,7 +245,7 @@ Adicione ao `mkdocs.yml`:
 
 ```yaml
 plugins:
-  - linkcheck
+    - linkcheck
 ```
 
 ### 4. Minificação
@@ -249,10 +254,10 @@ Já configurado no `requirements-docs.txt`:
 
 ```yaml
 plugins:
-  - minify:
-      minify_html: true
-      minify_js: true
-      minify_css: true
+    - minify:
+          minify_html: true
+          minify_js: true
+          minify_css: true
 ```
 
 ### 5. Git Revision Date
@@ -261,14 +266,14 @@ Mostra data da última modificação automaticamente (já configurado).
 
 ## Troubleshooting
 
-### Erro: "Port already in use"
+### Error: "Port already in use"
 
 ```bash
 # Usar outra porta
 mkdocs serve --dev-addr=127.0.0.1:8001
 ```
 
-### Erro: "Theme not found"
+### Error: "Theme not found"
 
 ```bash
 # Reinstalar dependências
@@ -286,7 +291,7 @@ mkdocs build
 
 ### JavaScript não executa
 
-Verifique o console do navegador (F12) para erros.
+Verifique o console do navegador (F12) para errors.
 
 ## Recursos
 

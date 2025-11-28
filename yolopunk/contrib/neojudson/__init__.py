@@ -1,19 +1,20 @@
-"""
-Neojudson - Contribuições de Judson para YOLOPunk
-==================================================
+"""Neojudson - Judson's Contributions to YOLOPunk.
 
-Módulo de alto nível para treino, predição e manipulação
-de modelos YOLO desenvolvido por Judson.
+High-level module for training, prediction, and manipulation of YOLO models
+developed by Judson.
 
-- Autor: Judson
-- Licença: AGPL-3.0 (compatível com YOLOPunk)
+Author:
+    Judson
 
-Classes Disponíveis:
-    - YOLOClassificationTrainer: Treinamento e predição para classificação YOLO
-    - (Futuro) YOLODetectionTrainer: Detecção de objetos
-    - (Futuro) YOLOSegmentationTrainer: Segmentação de instâncias
+License:
+    AGPL-3.0 (compatible with YOLOPunk)
 
-Exemplo de Uso:
+Available Classes:
+    YOLOClassificationTrainer: Training and prediction for YOLO classification.
+    (Future) YOLODetectionTrainer: Object detection.
+    (Future) YOLOSegmentationTrainer: Instance segmentation.
+
+Typical Usage Example:
     >>> from yolopunk.contrib.neojudson import YOLOClassificationTrainer
     >>> trainer = YOLOClassificationTrainer()
     >>> trainer.image_folder = ("data/cats", "cats")
@@ -22,11 +23,13 @@ Exemplo de Uso:
     >>> results = trainer.training_yolo_model(num_epochs=50)
 """
 
-__version__ = "0.1.0"
-__author__ = "Judson"
+from typing import List
 
 from .classification import YOLOClassificationTrainer
 
-__all__ = [
+__version__: str = "0.1.0"
+__author__: str = "Judson"
+
+__all__: list[str] = [
     "YOLOClassificationTrainer",
 ]

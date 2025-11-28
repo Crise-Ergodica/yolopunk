@@ -4,7 +4,7 @@
 
 ###### _sǝɐ̰ɥןɐƃɐW ˙Ɔ ˙ᗡ ɐɹoɹn∀ - 5202/11/52 ǝpsǝp soʇuıɹıqɐן sop ɐsɐɔ ɐu opuɐɹʇuƎ_
 
-![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge) 
+![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
 ![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
 ![Docs](https://img.shields.io/badge/📖_Docs-MkDocs-c41e3a.svg?style=for-the-badge)
@@ -19,27 +19,27 @@ Um toolkit ergódico para detecção de objetos com YOLO, onde cada iteração c
 
 <div class="grid cards" markdown>
 
--   :material-eye-outline: **Visão Ergódica**
+- :material-eye-outline: **Visão Ergódica**
 
-    ---
+    ***
 
     Detecção que evolui através de estados caóticos até convergir na precisão absoluta.
 
--   :material-auto-fix: **Configurável**
+- :material-auto-fix: **Configurável**
 
-    ---
+    ***
 
     Templates Jinja2 para customização total. Você controla cada pixel da pipeline.
 
--   :material-code-braces: **Pythônico**
+- :material-code-braces: **Pythônico**
 
-    ---
+    ***
 
     API limpa e intuitiva. Escreva menos, detecte mais.
 
--   :material-lightning-bolt: **Rápido**
+- :material-lightning-bolt: **Rápido**
 
-    ---
+    ***
 
     Otimizado para performance. Treino e inferência em velocidade brutal.
 
@@ -54,7 +54,7 @@ pip install yolopunk
 ```python
 from yolopunk import YoloPunk
 
-# Inicialize o detector
+# Initialize o detector
 detector = YoloPunk(model="yolov8n.pt")
 
 # Detecte objetos
@@ -86,6 +86,6 @@ Este site é gerado com MkDocs + Jinja2. Modifique os templates em `docs/overrid
 
 <div class="ergodic-footer" markdown>
 
-*"No caos da detecção, encontramos padrões. Nos padrões, criamos ordem. Na ordem, alcançamos a precisão."*
+_"No caos da detecção, encontramos padrões. Nos padrões, criamos ordem. Na ordem, alcançamos a precisão."_
 
 </div>

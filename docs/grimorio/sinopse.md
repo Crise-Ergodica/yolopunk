@@ -3,7 +3,7 @@
 <div class="grimorio-header" markdown>
 
 **Grimório Ergódico de Detecção**  
-*Conhecimento que sangra através das iterações*
+_Conhecimento que sangra através das iterações_
 
 </div>
 
@@ -17,28 +17,28 @@ Aqui você encontrará:
 
 <div class="grid cards" markdown>
 
--   :material-brain: **Conceitos Fundamentais**
+- :material-brain: **Conceitos Fundamentais**
 
-    ---
+    ***
 
     Teoria ergódica aplicada à visão computacional.
 
--   :material-cog: **Modos de Operação**
+- :material-cog: **Modos de Operação**
 
-    ---
+    ***
 
     Treino, validação, inferência: cada modo tem seu ritual.
 
--   :material-chart-line: **Métricas & Convergência**
+- :material-chart-line: **Métricas & Convergência**
 
-    ---
+    ***
 
     Como medir o caos e extrair ordem.
 
--   :material-file-code: **Exemplos Práticos**
+- :material-file-code: **Exemplos Práticos**
 
-    ---
-    
+    ***
+
     Código que funciona, testado em sangue e GPU.
 
 </div>
@@ -60,10 +60,10 @@ Validação e métricas:
 
 - Validação cruzada
 - Métricas customizadas
-- Análise de erros
+- Análise de errors
 - Visualizações
 
-### Modo Inferência *(em breve)*
+### Modo Inferência _(em breve)_
 
 Detecção em produção:
 
@@ -77,18 +77,18 @@ Detecção em produção:
 ## Filosofia Ergódica
 
 !!! quote "Teoria Ergódica"
-    
+
     Em sistemas ergódicos, a média temporal de uma única trajetória converge para a média espacial de todas as trajetórias possíveis.
 
 No contexto de detecção de objetos:
 
 ```python
 # Cada iteração explora o espaço de estados
-for epoch in epochs:
+for _epoch in epochs:
     # Convergência temporal → convergência espacial
     loss = train_step()
     metrics = validate()
-    
+
     if converged(metrics):
         break  # Ordem emergiu do caos
 ```

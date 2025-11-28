@@ -3,7 +3,7 @@
 <div class="grimorio-header" markdown>
 
 **Validação Ergódica**  
-*Medindo o caos, extraindo ordem*
+_Medindo o caos, extraindo ordem_
 
 </div>
 
@@ -20,11 +20,7 @@ from yolopunk.validate import ErgodValidator
 
 # Configuração
 validator = ErgodValidator(
-    model="models/best.pt",
-    data="dataset.yaml",
-    split="val",
-    conf_threshold=0.25,
-    iou_threshold=0.45
+    model="models/best.pt", data="dataset.yaml", split="val", conf_threshold=0.25, iou_threshold=0.45
 )
 
 # Validação
@@ -36,8 +32,6 @@ metrics = validator.validate()
 ### Confusion Matrix
 
 ```python
-from yolopunk.metrics import ConfusionMatrix
-
 cm = validator.confusion_matrix()
 cm.plot(save_dir="plots/", normalize=True)
 ```
@@ -47,11 +41,7 @@ cm.plot(save_dir="plots/", normalize=True)
 ```python
 from yolopunk.plotting import plot_pr_curve
 
-plot_pr_curve(
-    validator.results,
-    class_names=["person", "car", "bike"],
-    save="plots/pr_curve.png"
-)
+plot_pr_curve(validator.results, class_names=["person", "car", "bike"], save="plots/pr_curve.png")
 ```
 
 ### F1-Confidence Curve
@@ -59,44 +49,29 @@ plot_pr_curve(
 ```python
 from yolopunk.plotting import plot_f1_curve
 
-plot_f1_curve(
-    validator.results,
-    save="plots/f1_curve.png"
-)
+plot_f1_curve(validator.results, save="plots/f1_curve.png")
 ```
 
-## Análise de Erros
+## Análise de Errors
 
 ### Falsos Positivos
 
 ```python
 # Encontrar falsos positivos
-false_positives = validator.get_false_positives(
-    confidence_threshold=0.5,
-    top_n=50
-)
+false_positives = validator.get_false_positives(confidence_threshold=0.5, top_n=50)
 
 # Visualizar
-validator.visualize_errors(
-    false_positives,
-    save_dir="errors/false_positives/"
-)
+validator.visualize_errors(false_positives, save_dir="errors/false_positives/")
 ```
 
 ### Falsos Negativos
 
 ```python
 # Encontrar falsos negativos
-false_negatives = validator.get_false_negatives(
-    confidence_threshold=0.5,
-    top_n=50
-)
+false_negatives = validator.get_false_negatives(confidence_threshold=0.5, top_n=50)
 
 # Visualizar
-validator.visualize_errors(
-    false_negatives,
-    save_dir="errors/false_negatives/"
-)
+validator.visualize_errors(false_negatives, save_dir="errors/false_negatives/")
 ```
 
 ### Análise por Classe
@@ -120,12 +95,7 @@ for cls_name, metrics in class_metrics.items():
 ```python
 from yolopunk.validate import KFoldValidator
 
-kfold = KFoldValidator(
-    model="yolov8n.pt",
-    data="dataset.yaml",
-    k=5,
-    epochs=100
-)
+kfold = KFoldValidator(model="yolov8n.pt", data="dataset.yaml", k=5, epochs=100)
 
 # Executar validação cruzada
 results = kfold.run()
@@ -142,20 +112,22 @@ print(f"Mean mAP@95: {results.mean_mAP95:.3f} ± {results.std_mAP95:.3f}")
 ```python
 from yolopunk.metrics import Metric
 
+
 class BloodMetric(Metric):
     """Métrica customizada que penaliza falsos positivos."""
-    
+
     def __init__(self, fp_penalty=2.0):
         self.fp_penalty = fp_penalty
-    
+
     def compute(self, predictions, targets):
         tp = (predictions == targets).sum()
         fp = ((predictions == 1) & (targets == 0)).sum()
         fn = ((predictions == 0) & (targets == 1)).sum()
-        
+
         # Penaliza FP mais que FN
         score = tp / (tp + self.fp_penalty * fp + fn)
         return score
+
 
 # Usar
 validator.add_metric("blood_score", BloodMetric(fp_penalty=2.0))
@@ -169,11 +141,7 @@ metrics = validator.validate()
 ```python
 from yolopunk.plotting import plot_detection_heatmap
 
-plot_detection_heatmap(
-    validator.results,
-    image_shape=(640, 640),
-    save="plots/heatmap.png"
-)
+plot_detection_heatmap(validator.results, image_shape=(640, 640), save="plots/heatmap.png")
 ```
 
 ### Distribuição de Confidências
@@ -181,11 +149,7 @@ plot_detection_heatmap(
 ```python
 from yolopunk.plotting import plot_confidence_distribution
 
-plot_confidence_distribution(
-    validator.results,
-    bins=50,
-    save="plots/confidence_dist.png"
-)
+plot_confidence_distribution(validator.results, bins=50, save="plots/confidence_dist.png")
 ```
 
 ### Tamanho de Objetos
@@ -193,24 +157,21 @@ plot_confidence_distribution(
 ```python
 from yolopunk.plotting import plot_size_distribution
 
-plot_size_distribution(
-    validator.results,
-    save="plots/size_dist.png"
-)
+plot_size_distribution(validator.results, save="plots/size_dist.png")
 ```
 
 ## Best Practices
 
 !!! tip "Validação Efetiva"
-    
-    1. **Use validation set separado**: Nunca valide no treino
+
+    1. **Use validation set separado**: Nunca valid no treino
     2. **Threshold tuning**: Ajuste `conf_threshold` baseado no use case
-    3. **Análise de erros**: Entenda ONDE o modelo erra
+    3. **Análise de errors**: Entenda ONDE o modelo erra
     4. **Métricas múltiplas**: Não confie apenas em mAP
     5. **Visualize**: Plots revelam padrões que números escondem
 
 !!! warning "Armadilhas"
-    
+
     - **Overfitting em validação**: Não tune demais baseado no val set
     - **Threshold inadequado**: Muito alto → FN, muito baixo → FP
     - **Class imbalance**: Considere weighted metrics
@@ -223,12 +184,7 @@ plot_size_distribution(
 ```python
 from yolopunk.validate import ValidationReport
 
-report = ValidationReport(
-    validator=validator,
-    include_plots=True,
-    include_errors=True,
-    save_dir="reports/validation/"
-)
+report = ValidationReport(validator=validator, include_plots=True, include_errors=True, save_dir="reports/validation/")
 
 report.generate()
 ```
@@ -249,17 +205,13 @@ O relatório inclui:
 ## Exemplo Completo
 
 ```python
-from yolopunk.validate import ErgodValidator, ValidationReport
-from yolopunk.plotting import plot_pr_curve, plot_f1_curve
 from yolopunk.metrics import BloodMetric
+from yolopunk.plotting import plot_f1_curve, plot_pr_curve
+from yolopunk.validate import ErgodValidator, ValidationReport
 
 # Validator
 validator = ErgodValidator(
-    model="models/best.pt",
-    data="dataset.yaml",
-    split="val",
-    conf_threshold=0.25,
-    iou_threshold=0.45
+    model="models/best.pt", data="dataset.yaml", split="val", conf_threshold=0.25, iou_threshold=0.45
 )
 
 # Métrica customizada
@@ -274,7 +226,7 @@ print(f"Precision:   {metrics['precision']:.3f}")
 print(f"Recall:      {metrics['recall']:.3f}")
 print(f"Blood Score: {metrics['blood_score']:.3f}")
 
-# Análise de erros
+# Análise de errors
 fp = validator.get_false_positives(top_n=20)
 fn = validator.get_false_negatives(top_n=20)
 
@@ -286,12 +238,7 @@ plot_pr_curve(validator.results, save="plots/pr.png")
 plot_f1_curve(validator.results, save="plots/f1.png")
 
 # Relatório completo
-report = ValidationReport(
-    validator=validator,
-    include_plots=True,
-    include_errors=True,
-    save_dir="reports/validation/"
-)
+report = ValidationReport(validator=validator, include_plots=True, include_errors=True, save_dir="reports/validation/")
 
 report.generate()
 ```

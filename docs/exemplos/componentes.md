@@ -1,15 +1,15 @@
-# Showcase de Componentes
+# Showcase de Components
 
 <div class="grimorio-header" markdown>
 
-**Galeria de Componentes Ergódicos**  
-*Todos os elementos visuais disponíveis*
+**Galeria de Components Ergódicos**  
+_Todos os elementos visuais disponíveis_
 
 </div>
 
 ---
 
-Esta página demonstra todos os componentes customizados disponíveis no tema yolopunk.
+Esta página demonstra todos os components customizados disponíveis no tema yolopunk.
 
 ## Hero Section
 
@@ -45,27 +45,27 @@ Uma seção de destaque para chamar atenção.
 
 <div class="grid cards" markdown>
 
--   :material-flash: **Rápido**
+- :material-flash: **Rápido**
 
-    ---
+    ***
 
     Detecção em tempo real com performance otimizada.
 
--   :material-brain: **Inteligente**
+- :material-brain: **Inteligente**
 
-    ---
+    ***
 
     Algoritmos ergódicos que aprendem e convergem.
 
--   :material-shield-check: **Confiável**
+- :material-shield-check: **Confiável**
 
-    ---
+    ***
 
     Testado em produção, pronto para uso real.
 
--   :material-code-braces: **Extensível**
+- :material-code-braces: **Extensível**
 
-    ---
+    ***
 
     API modular para customização total.
 
@@ -76,9 +76,9 @@ Uma seção de destaque para chamar atenção.
 ```markdown
 <div class="grid cards" markdown>
 
--   :material-icon: **Título**
+- :material-icon: **Título**
 
-    ---
+    ***
 
     Descrição do card.
 
@@ -92,41 +92,42 @@ Uma seção de destaque para chamar atenção.
 ### Tip
 
 !!! tip "Dica Ergódica"
-    Use callbacks para monitorar convergência em tempo real.
-    
+Use callbacks para monitorar convergência em tempo real.
+
     ```python
     from yolopunk.callbacks import BloodLogger
+
     trainer.add_callback(BloodLogger())
     ```
 
 ### Warning
 
 !!! warning "Aviso Importante"
-    Não use learning rate muito alto no início do treino.
-    
+Não use learning rate muito alto no início do treino.
+
     Isso pode causar divergência ao invés de convergência.
 
 ### Quote
 
 !!! quote "Teoria Ergódica"
-    "No caos da detecção, encontramos padrões. Nos padrões, criamos ordem."
+"No caos da detecção, encontramos padrões. Nos padrões, criamos ordem."
 
 ### Info
 
 !!! info "Informação"
-    O yolopunk suporta todos os modelos da família YOLOv8.
+O yolopunk suporta todos os modelos da família YOLOv8.
 
 **Código:**
 
 ```markdown
 !!! tip "Título"
-    Conteúdo da dica.
+Conteúdo da dica.
 
 !!! warning "Título"
-    Conteúdo do aviso.
+Conteúdo do aviso.
 
 !!! quote "Título"
-    Conteúdo da citação.
+Conteúdo da citação.
 ```
 
 ---
@@ -154,9 +155,9 @@ train: images/train
 val: images/val
 
 names:
-  0: person
-  1: car
-  2: bike
+    0: person
+    1: car
+    2: bike
 ```
 
 ### Bash
@@ -183,7 +184,7 @@ print("Hello, World!")
 
     ```python
     from yolopunk import YoloPunk
-    
+
     detector = YoloPunk(model="yolov8n.pt")
     results = detector.detect("image.jpg")
     ```
@@ -227,19 +228,19 @@ print("Hello, World!")
 
 ## Tables
 
-| Métrica | Descrição | Range | Ideal |
-|---------|-----------|-------|-------|
-| **mAP@50** | Mean Average Precision @ IoU=0.5 | 0-1 | >0.8 |
-| **mAP@95** | Mean Average Precision @ IoU=0.5:0.95 | 0-1 | >0.6 |
-| **Precision** | True Positives / All Positives | 0-1 | >0.85 |
-| **Recall** | True Positives / All Actual | 0-1 | >0.80 |
-| **F1 Score** | Harmônica de Precision e Recall | 0-1 | >0.82 |
+| Métrica       | Descrição                             | Range | Ideal |
+| ------------- | ------------------------------------- | ----- | ----- |
+| **mAP@50**    | Mean Average Precision @ IoU=0.5      | 0-1   | >0.8  |
+| **mAP@95**    | Mean Average Precision @ IoU=0.5:0.95 | 0-1   | >0.6  |
+| **Precision** | True Positives / All Positives        | 0-1   | >0.85 |
+| **Recall**    | True Positives / All Actual           | 0-1   | >0.80 |
+| **F1 Score**  | Harmônica de Precision e Recall       | 0-1   | >0.82 |
 
 **Código:**
 
 ```markdown
 | Coluna 1 | Coluna 2 | Coluna 3 |
-|----------|----------|----------|
+| -------- | -------- | -------- |
 | Valor 1  | Valor 2  | Valor 3  |
 ```
 
@@ -274,16 +275,16 @@ print("Hello, World!")
 
 - Item 1
 - Item 2
-  - Subitem 2.1
-  - Subitem 2.2
+    - Subitem 2.1
+    - Subitem 2.2
 - Item 3
 
 ### Lista Ordenada
 
 1. Primeiro passo
 2. Segundo passo
-   1. Subpasso 2.1
-   2. Subpasso 2.2
+    1. Subpasso 2.1
+    2. Subpasso 2.2
 3. Terceiro passo
 
 ### Task List
@@ -332,7 +333,7 @@ print("Hello, World!")
 
 <div class="ergodic-footer" markdown>
 
-*"No caos da detecção, encontramos padrões. Nos padrões, criamos ordem. Na ordem, alcançamos a precisão."*
+_"No caos da detecção, encontramos padrões. Nos padrões, criamos ordem. Na ordem, alcançamos a precisão."_
 
 </div>
 
@@ -341,7 +342,7 @@ print("Hello, World!")
 ```markdown
 <div class="ergodic-footer" markdown>
 
-*"Sua frase inspiradora aqui."*
+_"Sua frase inspiradora aqui."_
 
 </div>
 ```
@@ -389,7 +390,7 @@ Emojis funcionam nativamente:
 
 <div class="ergodic-footer" markdown>
 
-**Todos os componentes prontos para uso!**  
-*Customize livremente em `docs/stylesheets/custom.css`*
+**Todos os components prontos para uso!**  
+_Customize livremente em `docs/stylesheets/custom.css`_
 
 </div>

@@ -3,14 +3,14 @@
 <div class="api-header" markdown>
 
 **Referência Completa da API**  
-*Todas as funções, classes e métodos do yolopunk*
+_Todas as funções, classes e métodos do yolopunk_
 
 </div>
 
 ---
 
 !!! info "Em Construção"
-    
+
     Esta seção está sendo construída. A API será documentada automaticamente usando `mkdocstrings`.
 
 ## Módulos Principais
@@ -68,7 +68,7 @@ Visualizações e plots.
 
 ## Documentação Automática
 
-Para documentação automática, instale:
+Para documentação automática, install:
 
 ```bash
 pip install mkdocstrings[python]
@@ -78,10 +78,10 @@ E adicione ao `mkdocs.yml`:
 
 ```yaml
 plugins:
-  - mkdocstrings:
-      handlers:
-        python:
-          options:
-            docstring_style: google
-            show_source: true
+    - mkdocstrings:
+          handlers:
+              python:
+                  options:
+                      docstring_style: google
+                      show_source: true
 ```

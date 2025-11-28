@@ -3,7 +3,7 @@
 <div class="grimorio-header" markdown>
 
 **Templates Ergódicos**  
-*Controle total sobre cada elemento*
+_Controle total sobre cada elemento_
 
 </div>
 
@@ -27,11 +27,11 @@ Jinja2 é um template engine Python que permite:
 docs/overrides/
 ├── main.html              # Template principal (você customiza)
 ├── home.html              # Template da home
-├── partials/              # Componentes reutilizáveis
+├── partials/              # Components reutilizáveis
 │   ├── header.html
 │   ├── footer.html
 │   └── toc.html
-└── 404.html               # Página de erro customizada
+└── 404.html               # Página de error customizada
 ```
 
 ## Blocos Disponíveis
@@ -89,8 +89,8 @@ Configure em `mkdocs.yml`:
 
 ```yaml
 extra:
-  announcement: |
-    <strong>Novo!</strong> Documentação completamente redesenhada.
+    announcement: |
+        <strong>Novo!</strong> Documentação completamente redesenhada.
 ```
 
 ### 2. Footer Customizado
@@ -106,9 +106,9 @@ extra:
             <div>{{ config.copyright }}</div>
           {% endif %}
           <div>
-            Built with 
+            Built with
             <a href="https://www.mkdocs.org/" target="_blank">MkDocs</a>
-            and 
+            and
             <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank">Material</a>
           </div>
           <div class="convergence-line"></div>
@@ -124,12 +124,12 @@ extra:
 ```jinja2
 {% block scripts %}
   {{ super() }}  {# Mantém scripts originais #}
-  
+
   <script>
     // Seu JavaScript customizado
     document.addEventListener('DOMContentLoaded', function() {
       console.log('yolopunk docs loaded!');
-      
+
       // Adicionar analytics customizado
       if (typeof gtag !== 'undefined') {
         gtag('config', 'GA_MEASUREMENT_ID');
@@ -144,14 +144,14 @@ extra:
 ```jinja2
 {% block site_meta %}
   {{ super() }}
-  
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
   <meta property="og:description" content="{{ config.site_description }}">
   <meta property="og:url" content="{{ page.canonical_url }}">
   <meta property="og:image" content="{{ config.site_url }}/assets/images/banner.png">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page.title }}">
@@ -165,7 +165,7 @@ extra:
 ### Config
 
 ```jinja2
-{{ config.site_name }}           # Nome do site
+{{ config.site_name }}           # Gnome do site
 {{ config.site_description }}    # Descrição
 {{ config.site_url }}            # URL base
 {{ config.repo_url }}            # URL do repositório
@@ -204,8 +204,8 @@ extra:
 {% block hero %}
   {% if page.meta and page.meta.hero %}
     <div class="ergodic-hero" style="
-      background: linear-gradient(135deg, 
-        {{ page.meta.hero_color_1 | default('#c41e3a') }}, 
+      background: linear-gradient(135deg,
+        {{ page.meta.hero_color_1 | default('#c41e3a') }},
         {{ page.meta.hero_color_2 | default('#8b0000') }}
       );
     ">
@@ -252,7 +252,7 @@ hero_color_2: "#c41e3a"
       </ul>
     </nav>
   {% endif %}
-  
+
   {{ super() }}
 {% endblock %}
 ```
@@ -278,7 +278,7 @@ hero_color_2: "#c41e3a"
 ```jinja2
 {% block content %}
   {{ super() }}
-  
+
   <nav class="md-footer-nav" aria-label="Page navigation">
     <div class="md-footer-nav__inner">
       {% if page.previous_page %}
@@ -289,7 +289,7 @@ hero_color_2: "#c41e3a"
           </div>
         </a>
       {% endif %}
-      
+
       {% if page.next_page %}
         <a href="{{ page.next_page.url }}" class="md-footer-nav__link md-footer-nav__link--next">
           <div class="md-footer-nav__title">
@@ -344,12 +344,12 @@ hero_color_2: "#c41e3a"
 
 ## Partials Reutilizáveis
 
-Crie componentes reutilizáveis:
+Crie components reutilizáveis:
 
 **`docs/overrides/partials/chaos-indicator.html`:**
 
 ```jinja2
-<div class="chaos-indicator" 
+<div class="chaos-indicator"
      data-level="{{ level | default('medium') }}">
   <span class="pulse"></span>
   <span class="label">Chaos: {{ level | upper }}</span>
@@ -410,7 +410,7 @@ Crie funções reutilizáveis:
 ```jinja2
 {# Isso é um comentário e não aparece no HTML #}
 
-{# 
+{#
 Comentário
 multilinha
 #}
@@ -419,15 +419,15 @@ multilinha
 ## Best Practices
 
 !!! tip "Dicas de Templates"
-    
+
     1. **Sempre use `{{ super() }}`** quando estender blocos
     2. **Mantenha lógica no Python**, não no template
-    3. **Use partials** para componentes reutilizáveis
+    3. **Use partials** para components reutilizáveis
     4. **Comente** templates complexos
     5. **Teste** em múltiplos navegadores
 
 !!! warning "Cuidados"
-    
+
     - Não coloque muita lógica nos templates
     - Evite queries complexas no template
     - Cuidado com performance em loops grandes
@@ -444,6 +444,6 @@ multilinha
 <div class="ergodic-footer" markdown>
 
 **Controle total sobre cada pixel**  
-*Customize até o caos convergir em perfeição*
+_Customize até o caos convergir em perfeição_
 
 </div>
