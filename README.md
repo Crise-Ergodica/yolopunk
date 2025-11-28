@@ -3,10 +3,10 @@
 
 ###### _sǝɐ̰ɥןɐƃɐW ˙Ɔ ˙ᗡ ɐɹoɹn∀ - 5202/11/52 ǝpsǝp soʇuıɹıqɐן sop ɐsɐɔ ɐu opuɐɹʇuƎ_
 
-![Licença: AGPL-3.0](https://img.shields.io/badge/☥_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge)
-![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
+![Licença: AGPL-3.0](https://img.shields.io/badge/_Licença-AGPL--3.0-8B0000.svg?style=for-the-badge)
+![Status](https://img.shields.io/badge/_Status-Em_Construção-crimson.svg?style=for-the-badge)
 ![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
-![Docs](https://img.shields.io/badge/📖_Docs-MkDocs-c41e3a.svg?style=for-the-badge)
+![Docs](https://img.shields.io/badge/_Docs-MkDocs-c41e3a.svg?style=for-the-badge)
 ![PEP 8](https://img.shields.io/badge/code%20style-PEP%208-darkred.svg?style=for-the-badge)
 ![PEP 257](https://img.shields.io/badge/docstrings-PEP%20257-8B0000.svg?style=for-the-badge)
 ![Type Hints](https://img.shields.io/badge/type%20hints-PEP%20484-crimson.svg?style=for-the-badge)
@@ -27,19 +27,19 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 
 ---
 
-## <img src="docs/img/pentagrama_icone.svg" width="26"> 📐 Padrões de Qualidade do Código
+## <img src="docs/img/pentagrama_icone.svg" width="26"> Padrões de Qualidade do Código
 
 **YOLOPunk** segue rigorosos padrões de qualidade e legibilidade de código:
 
-### 🌐 Idioma do Código
+###  Idioma do Código:
 
 - **Código-fonte**: Inglês (gnomes de variáveis, funções, classes, comentários)
 - **Documentação de usuário**: Português (README, docs/)
 - **Motivo**: Acessibilidade global e conformidade com padrões internacionais
 
-### 📋 PEPs Seguidas
+###  PEPs Seguidas:
 
-#### PEP 8 - Style Guide for Python Code
+#### **PEP 8** - Style Guide for Python Code
 
 - Indentação de 4 espaços
 - Linhas com máximo de 79 characters (código) e 72 (docstrings)
@@ -47,20 +47,20 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 - Nomenclatura: `snake_case` para funções/variáveis, `PascalCase` para classes
 - Espaçamento consistente em operadores e after commas
 
-#### PEP 257 - Docstring Conventions
+#### **PEP 257** - Docstring Conventions
 
 - Docstrings obrigatórias para todos os módulos, classes e funções públicas
 - Uma linha para descrições simples, múltiplas linhas para documentação detalhada
 - Formato Google Style Guide para arguments, retornos e exceções
 
-#### PEP 484 - Type Hints
+#### **PEP 484** - Type Hints
 
 - Type hints obrigatórios em todas as assinaturas de funções
 - Uso de `typing` para tipos complexos (`Optional`, `Union`, `List`, `Tuple`, etc.)
 - Return types explícitos (incluindo `None`)
 - Type hints para atributos de classe quando apropriado
 
-#### Google Style Guide for Python
+#### **Google Style Guide** for Python
 
 - Docstrings seguem formato Google:
 
@@ -82,7 +82,7 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
       """
   ```
 
-### 🔍 Ferramentas de Qualidade
+###  Ferramentas de Qualidade:
 
 - **black**: Formatação automática (quando disponível)
 - **flake8**: Linting e checagem de estilo
@@ -111,7 +111,7 @@ mkdocs serve
 
 INCOMPLETO
 
-### 🛠️ Customização
+### 🛠️ Construção do Grimório
 
 Veja [docs/README.md](docs/README.md) para guia completo de customização.
 

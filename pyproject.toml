@@ -19,7 +19,7 @@
 requires = ["setuptools>=70.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-# Project settings -----------------------------------------------------------------------------------------------------
+# Project settings ------------------------------------------------------------
 [project]
 name = "yolopunk"
 version = "0.1.0"
@@ -39,12 +39,12 @@ authors = [
     { name = "Aurora Drumond Costa Magalhães", email = "gdcm10@gmail.com" }
 ]
 
-# Required dependencies ------------------------------------------------------------------------------------------------
+# Required dependencies -------------------------------------------------------
 dependencies = [
     "numpy>=1.23.0",
 ]
 
-# Optional dependencies ------------------------------------------------------------------------------------------------
+# Optional dependencies -------------------------------------------------------
 [project.optional-dependencies]
 dev = [
     "mkdocs>=1.5.0",

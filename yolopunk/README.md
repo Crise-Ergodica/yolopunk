@@ -1,10 +1,11 @@
-<a href="https://www.ultralytics.com/"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
+<img src="docs/img/yolopunk_titulo.png" width="320" alt="YOLOPunk Logo">
 
-# Source Code Directory (`src/` or `your_package_name/`)
+# `yolopunk/`
 
-Welcome to the core of the project! This directory houses the essential Python source code that powers our application. Whether structured within a `src/` layout or a directly named package folder, this is where the main logic resides.
+Bem vindo ao núcleo que pulsa sangue e da significado a tudo isso! esse diretório encarna o código essencial para o 
+funcionamento do projeto, por isso leva seu nome.
 
-## 📂 Structure
+## <img src="docs/img/pentagrama_icone.svg" width="26"> Estrutura do Projeto
 
 Our project follows a clean and organized structure to promote maintainability and scalability:
 
@@ -12,7 +13,7 @@ Our project follows a clean and organized structure to promote maintainability a
 - **Dedicated Folders**: Each significant feature or component typically resides in its own dedicated folder (sub-package) or file (module).
 - **Configuration**: The [`pyproject.toml`](https://packaging.python.org/en/latest/specifications/pyproject-toml/) file, located at the project's root (outside this source directory), defines packaging, dependencies, and project metadata according to [PEP 621](https://peps.python.org/pep-0621/). You can find details on Ultralytics configuration options in our [docs](https://docs.ultralytics.com/usage/cfg/).
 
-## 📝 Guidelines
+## <img src="docs/img/pentagrama_icone.svg" width="26"> Contributing Guidelines
 
 To ensure code quality, consistency, and collaboration, please adhere to the following guidelines:
 
