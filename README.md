@@ -7,6 +7,9 @@
 ![Status](https://img.shields.io/badge/Δ_Status-Em_Construção-crimson.svg?style=for-the-badge)
 ![Python](https://img.shields.io/badge/_Python-3.9+-darkred.svg?style=for-the-badge&logo=python)
 ![Docs](https://img.shields.io/badge/📖_Docs-MkDocs-c41e3a.svg?style=for-the-badge)
+![PEP 8](https://img.shields.io/badge/code%20style-PEP%208-darkred.svg?style=for-the-badge)
+![PEP 257](https://img.shields.io/badge/docstrings-PEP%20257-8B0000.svg?style=for-the-badge)
+![Type Hints](https://img.shields.io/badge/type%20hints-PEP%20484-crimson.svg?style=for-the-badge)
 
 </div>
 
@@ -20,6 +23,63 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 - Não fuja daquilo que parece impossível: corrompa, inquiete, desoriente.
 - Teste tudo, mas desconfie de tudo.
 **Entre. Perca-se.**
+
+---
+
+## <img src="docs/img/pentagrama_icone.svg" width="26"> 📐 Padrões de Qualidade do Código
+
+**YOLOPunk** segue rigorosos padrões de qualidade e legibilidade de código:
+
+### 🌐 Idioma do Código
+- **Código-fonte**: Inglês (nomes de variáveis, funções, classes, comentários)
+- **Documentação de usuário**: Português (README, docs/)
+- **Motivo**: Acessibilidade global e conformidade com padrões internacionais
+
+### 📋 PEPs Seguidas
+
+#### PEP 8 - Style Guide for Python Code
+- Indentação de 4 espaços
+- Linhas com máximo de 79 caracteres (código) e 72 (docstrings)
+- Imports organizados: stdlib, terceiros, locais
+- Nomenclatura: `snake_case` para funções/variáveis, `PascalCase` para classes
+- Espaçamento consistente em operadores e after commas
+
+#### PEP 257 - Docstring Conventions
+- Docstrings obrigatórias para todos os módulos, classes e funções públicas
+- Uma linha para descrições simples, múltiplas linhas para documentação detalhada
+- Formato Google Style Guide para argumentos, retornos e exceções
+
+#### PEP 484 - Type Hints
+- Type hints obrigatórios em todas as assinaturas de funções
+- Uso de `typing` para tipos complexos (`Optional`, `Union`, `List`, `Tuple`, etc.)
+- Return types explícitos (incluindo `None`)
+- Type hints para atributos de classe quando apropriado
+
+#### Google Style Guide for Python
+- Docstrings seguem formato Google:
+  ```python
+  def function(arg1: str, arg2: int) -> bool:
+      """Brief description.
+
+      Longer description if needed.
+
+      Args:
+          arg1: Description of arg1.
+          arg2: Description of arg2.
+
+      Returns:
+          Description of return value.
+
+      Raises:
+          ValueError: Description of when this is raised.
+      """
+  ```
+
+### 🔍 Ferramentas de Qualidade
+- **black**: Formatação automática (quando disponível)
+- **flake8**: Linting e checagem de estilo
+- **mypy**: Verificação de tipos estáticos
+- **pylint**: Análise de código estática
 
 ---
 
@@ -152,6 +212,14 @@ Aceitamos contribuições que desafiem a razão e a sanidade. Testes são bem-vi
 2. Teste localmente: `mkdocs serve`
 3. Commit e push - GitHub Actions faz deploy automático
 
+**Para contribuir com código:**
+
+1. Siga as PEPs listadas acima (PEP 8, PEP 257, PEP 484)
+2. Escreva código em **inglês** (variáveis, funções, docstrings)
+3. Use Google Style Guide para docstrings
+4. Adicione type hints em todas as funções
+5. Teste seu código antes de submeter PR
+
 ---
 
 ## <img src="docs/img/pentagrama_icone.svg" width="26">️ LICENÇA
@@ -169,6 +237,7 @@ O que é derramado aqui, nunca mais retorna limpo.
 [![Bem-Vindo!](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](https://github.com/Crise-Ergodica/yolopunk/pulls)
 [![Made with Python](https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python)](https://www.python.org/)
 [![Documentation](https://img.shields.io/badge/docs-MkDocs-c41e3a?style=flat-square)](https://crise-ergodica.github.io/yolopunk)
+[![PEP 8](https://img.shields.io/badge/code%20style-PEP%208-black?style=flat-square)](https://peps.python.org/pep-0008/)
 
 <img src="docs/img/pentagrama_icone.svg" width="26"><img src="docs/img/pentagrama_icone.svg" width="26"><img src="docs/img/pentagrama_icone.svg" width="26">
 </div>
