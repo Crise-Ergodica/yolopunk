@@ -112,3 +112,18 @@ if sys.version_info < (3, 9):
         f"YOLOPunk requer Python 3.9 ou superior. "
         f"Versão atual: {sys.version_info.major}.{sys.version_info.minor}"
     )
+
+# ═══════════════════════════════════════════════════════════════
+#   Módulo Contrib (Contribuições da Comunidade)
+# ═══════════════════════════════════════════════════════════════
+
+try:
+    from . import contrib
+    CONTRIB_AVAILABLE = True
+except ImportError as e:
+    contrib = None
+    CONTRIB_AVAILABLE = False
+    _contrib_error = str(e)
+
+if CONTRIB_AVAILABLE:
+    __all__.append("contrib")
