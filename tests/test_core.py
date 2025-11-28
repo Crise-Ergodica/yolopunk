@@ -129,7 +129,7 @@ class TestVisionMocked:
         # Verifica se predict foi chamado
         mock_model.predict.assert_called_once()
         
-        # Verifica argumentos
+        # Verifica arguments
         call_kwargs = mock_model.predict.call_args[1]
         assert call_kwargs['source'] == 'test.jpg'
         assert call_kwargs['conf'] == 0.5
@@ -146,7 +146,7 @@ class TestVisionIntegration:
 
     def test_detect_sample_image(self, tmp_path):
         """Testa detecção em imagem de exemplo.
-        
+
         Nota: Este teste é pulado por padrão (marca 'integration').
         Execute com: pytest -m integration
         """

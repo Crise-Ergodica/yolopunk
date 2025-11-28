@@ -3,7 +3,7 @@
 <div class="quickstart-header" markdown>
 
 **Comece Rápido**  
-*Do zero à detecção em minutos*
+_Do zero à detecção em minutos_
 
 </div>
 
@@ -59,9 +59,9 @@ from yolopunk import YoloPunk
 detector = YoloPunk(model="yolov8n.pt")
 
 # Processar vídeo
-for frame_idx, results in detector.detect_video("video.mp4"):
+for _frame_idx, results in detector.detect_video("video.mp4"):
     results.show()  # Mostrar frame a frame
-    
+
 # Ou salvar diretamente
 detector.detect_video("video.mp4", save="output.mp4")
 ```
@@ -69,8 +69,9 @@ detector.detect_video("video.mp4", save="output.mp4")
 ### Detecção em Batch
 
 ```python
-from yolopunk import YoloPunk
 from pathlib import Path
+
+from yolopunk import YoloPunk
 
 detector = YoloPunk(model="yolov8n.pt")
 
@@ -93,9 +94,9 @@ train: images/train
 val: images/val
 
 names:
-  0: person
-  1: car
-  2: bike
+    0: person
+    1: car
+    2: bike
 ```
 
 Estrutura de diretórios:
@@ -123,13 +124,7 @@ dataset/
 ```python
 from yolopunk.train import ErgodTrainer
 
-trainer = ErgodTrainer(
-    model="yolov8n.pt",
-    data="dataset.yaml",
-    epochs=100,
-    batch_size=16,
-    imgsz=640
-)
+trainer = ErgodTrainer(model="yolov8n.pt", data="dataset.yaml", epochs=100, batch_size=16, imgsz=640)
 
 results = trainer.fit()
 ```
@@ -137,17 +132,14 @@ results = trainer.fit()
 ### Treino com Callbacks
 
 ```python
-from yolopunk.train import ErgodTrainer
 from yolopunk.callbacks import BloodLogger, ConvergenceMonitor
+from yolopunk.train import ErgodTrainer
 
 trainer = ErgodTrainer(
     model="yolov8n.pt",
     data="dataset.yaml",
     epochs=100,
-    callbacks=[
-        BloodLogger(verbose=True),
-        ConvergenceMonitor(patience=10)
-    ]
+    callbacks=[BloodLogger(verbose=True), ConvergenceMonitor(patience=10)],
 )
 
 results = trainer.fit()
@@ -158,10 +150,7 @@ results = trainer.fit()
 ```python
 from yolopunk.validate import ErgodValidator
 
-validator = ErgodValidator(
-    model="models/best.pt",
-    data="dataset.yaml"
-)
+validator = ErgodValidator(model="models/best.pt", data="dataset.yaml")
 
 metrics = validator.validate()
 
@@ -176,18 +165,16 @@ print(f"mAP@95: {metrics['mAP95']:.3f}")
 ```python
 from yolopunk.callbacks import Callback
 
+
 class CustomCallback(Callback):
     def on_epoch_end(self, epoch, metrics):
         print(f"Epoch {epoch}: Loss = {metrics['loss']:.4f}")
-    
+
     def on_train_end(self, results):
         print("Training completed!")
 
-trainer = ErgodTrainer(
-    model="yolov8n.pt",
-    data="dataset.yaml",
-    callbacks=[CustomCallback()]
-)
+
+trainer = ErgodTrainer(model="yolov8n.pt", data="dataset.yaml", callbacks=[CustomCallback()])
 ```
 
 ### Métricas Customizadas
@@ -195,11 +182,13 @@ trainer = ErgodTrainer(
 ```python
 from yolopunk.metrics import Metric
 
+
 class IoUMetric(Metric):
     def compute(self, predictions, targets):
         # Implementação customizada
         iou = self.calculate_iou(predictions, targets)
         return iou.mean()
+
 
 validator.add_metric("custom_iou", IoUMetric())
 ```
@@ -208,25 +197,25 @@ validator.add_metric("custom_iou", IoUMetric())
 
 <div class="grid cards" markdown>
 
--   :material-book-open-variant: **Grimório**
+- :material-book-open-variant: **Grimório**
 
-    ---
+    ***
 
     Aprofunde-se nos conceitos e técnicas avançadas.
 
     [Explorar Grimório](../grimorio/sinopse.md)
 
--   :material-code-braces: **API Reference**
+- :material-code-braces: **API Reference**
 
-    ---
+    ***
 
     Documentação completa de todas as classes e funções.
 
     [Ver API](../api/overview.md)
 
--   :material-github: **GitHub**
+- :material-github: **GitHub**
 
-    ---
+    ***
 
     Contribua, reporte bugs, ou explore o código fonte.
 
@@ -238,6 +227,6 @@ validator.add_metric("custom_iou", IoUMetric())
 
 <div class="ergodic-footer" markdown>
 
-*Pronto para sangrar precisão? Explore o [Grimório](../grimorio/sinopse.md) para técnicas avançadas.*
+_Pronto para sangrar precisão? Explore o [Grimório](../grimorio/sinopse.md) para técnicas avançadas._
 
 </div>

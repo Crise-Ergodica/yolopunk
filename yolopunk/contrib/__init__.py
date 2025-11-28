@@ -25,4 +25,4 @@ Note:
 
 from typing import List
 
-__all__: List[str] = ["neojudson"]
+__all__: list[str] = ["neojudson"]

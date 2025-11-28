@@ -16,7 +16,7 @@
   ███        ███    ███ ███   ███   ███▐██▄
   ███        ███    ███ ███   ███   ███ ▀███▄
  ▄████▀      ████████▀   ▀█   █▀    ███   ▀█▀
-                                    ▀
+                                    ▀.
 
 Framework modular para experimentos e projetos com YOLO.
 Desenvolvido para facilitar detecção de objetos, treinamento
@@ -34,19 +34,19 @@ Exemplo de Uso:
 
     >>> # Detecção de objetos
     >>> from yolopunk import Vision
-    >>> detector = Vision('yolov8n.pt')
-    >>> results = detector.detect('image.jpg')
+    >>> detector = Vision("yolov8n.pt")
+    >>> results = detector.detect("image.jpg")
 
     >>> # Utilitários de imagem
     >>> from yolopunk.utils import load_image, draw_boxes
-    >>> img = load_image('image.jpg')
+    >>> img = load_image("image.jpg")
 """
 
 # ═══════════════════════════════════════════════════════════════
 #  📦 Metadata do Pacote
 # ═══════════════════════════════════════════════════════════════
 
-__version__ = '0.1.0'
+__version__ = "0.1.0"
 __author__ = "Aurora Drumond Costa Magalhães"
 __email__ = "gdcm10@gmail.com"
 __license__ = "AGPL-3.0"
@@ -58,9 +58,10 @@ __license__ = "AGPL-3.0"
 import sys
 from pathlib import Path
 
-# Importa módulos core (com tratamento de erros)
+# Importa módulos core (com tratamento de errors)
 try:
     from .core import Vision
+
     CORE_AVAILABLE = True
 except ImportError as e:
     Vision = None
@@ -87,15 +88,15 @@ RESULTS_DIR.mkdir(exist_ok=True)
 # ═══════════════════════════════════════════════════════════════
 
 __all__ = [
-    "__version__",
+    "DATA_DIR",
+    "MODELS_DIR",
+    "RESULTS_DIR",
+    # Diretórios
+    "ROOT_DIR",
     "__author__",
     "__email__",
     "__license__",
-    # Diretórios
-    "ROOT_DIR",
-    "MODELS_DIR",
-    "DATA_DIR",
-    "RESULTS_DIR",
+    "__version__",
 ]
 
 # Adiciona Vision se disponível
@@ -107,11 +108,6 @@ if CORE_AVAILABLE:
 # ═══════════════════════════════════════════════════════════════
 
 # Verificar versão do Python
-if sys.version_info < (3, 9):
-    raise RuntimeError(
-        f"YOLOPunk requer Python 3.9 ou superior. "
-        f"Versão atual: {sys.version_info.major}.{sys.version_info.minor}"
-    )
 
 # ═══════════════════════════════════════════════════════════════
 #   Módulo Contrib (Contribuições da Comunidade)
@@ -119,6 +115,7 @@ if sys.version_info < (3, 9):
 
 try:
     from . import contrib
+
     CONTRIB_AVAILABLE = True
 except ImportError as e:
     contrib = None

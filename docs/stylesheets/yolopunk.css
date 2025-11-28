@@ -9,12 +9,12 @@
   --yp-ash-gray: #4a4a4a;
   --yp-fog-white: #e8e8e8;
   --yp-pulse-cyan: #00ffff;
-  
+
   /* Gradientes */
   --yp-gradient-blood: linear-gradient(135deg, var(--yp-blood-red), var(--yp-dark-red));
   --yp-gradient-chaos: linear-gradient(135deg, var(--yp-chaos-purple), var(--yp-blood-red));
   --yp-gradient-void: linear-gradient(180deg, var(--yp-void-black), var(--yp-steel-gray));
-  
+
   /* Sombras */
   --yp-shadow-blood: 0 4px 20px rgba(196, 30, 58, 0.3);
   --yp-shadow-void: 0 8px 32px rgba(0, 0, 0, 0.6);
@@ -71,8 +71,12 @@
 }
 
 @keyframes pulse-move {
-  0% { left: 0; }
-  100% { left: 100%; }
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 100%;
+  }
 }
 
 /* Blood Drip Effect */
@@ -123,7 +127,7 @@
 }
 
 .grimorio-header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -140,8 +144,12 @@
 }
 
 @keyframes chaos-pattern {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 .grimorio-header strong {
@@ -287,9 +295,16 @@
 }
 
 @keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-  50% { transform: scale(1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
 }
 
 /* Chaos Background Effect */
@@ -300,9 +315,15 @@
   right: 0;
   bottom: 0;
   opacity: 0.03;
-  background-image: 
+  background-image:
     repeating-linear-gradient(45deg, transparent, transparent 35px, var(--yp-blood-red) 35px, var(--yp-blood-red) 36px),
-    repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--yp-chaos-purple) 35px, var(--yp-chaos-purple) 36px);
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 35px,
+      var(--yp-chaos-purple) 35px,
+      var(--yp-chaos-purple) 36px
+    );
   pointer-events: none;
 }
 
@@ -325,8 +346,15 @@
 }
 
 @keyframes chaos-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 1; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
 }
 
 /* Responsive */
@@ -334,16 +362,16 @@
   .hero h2 {
     font-size: 2rem;
   }
-  
+
   .navigation-footer {
     flex-direction: column;
   }
-  
+
   .ergodic-indicator {
     bottom: 1rem;
     right: 1rem;
   }
-  
+
   .chaos-level {
     width: 30px;
     height: 30px;

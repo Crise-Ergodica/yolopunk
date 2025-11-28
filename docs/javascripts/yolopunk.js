@@ -1,34 +1,34 @@
 // YoloPunk Custom JavaScript
 // Ergodic interactions and animations
 
-(function() {
-  'use strict';
-  
+(function () {
+  "use strict";
+
   // Initialize when DOM is ready
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("DOMContentLoaded", function () {
     initErgodicEffects();
     initChaosLevel();
     initBloodTrail();
   });
-  
+
   /**
    * Initialize ergodic visual effects
    */
   function initErgodicEffects() {
     // Add chaos particle effect to headers
-    const headers = document.querySelectorAll('.grimorio-header');
-    headers.forEach(header => {
+    const headers = document.querySelectorAll(".grimorio-header");
+    headers.forEach((header) => {
       createChaosParticles(header);
     });
   }
-  
+
   /**
    * Create chaos particles effect
    */
   function createChaosParticles(element) {
     const particleCount = 20;
-    const container = document.createElement('div');
-    container.className = 'chaos-particles';
+    const container = document.createElement("div");
+    container.className = "chaos-particles";
     container.style.cssText = `
       position: absolute;
       top: 0;
@@ -38,9 +38,9 @@
       pointer-events: none;
       overflow: hidden;
     `;
-    
+
     for (let i = 0; i < particleCount; i++) {
-      const particle = document.createElement('div');
+      const particle = document.createElement("div");
       particle.style.cssText = `
         position: absolute;
         width: 2px;
@@ -54,69 +54,73 @@
       `;
       container.appendChild(particle);
     }
-    
+
     element.appendChild(container);
   }
-  
+
   /**
    * Initialize chaos level indicator
    */
   function initChaosLevel() {
-    const indicator = document.querySelector('.chaos-level');
+    const indicator = document.querySelector(".chaos-level");
     if (!indicator) return;
-    
-    const level = indicator.dataset.level || 'medium';
+
+    const level = indicator.dataset.level || "medium";
     const colors = {
-      low: '#6a0dad',
-      medium: '#c41e3a',
-      high: '#8b0000'
+      low: "#6a0dad",
+      medium: "#c41e3a",
+      high: "#8b0000",
     };
-    
+
     indicator.style.background = `radial-gradient(circle, ${colors[level]}, transparent)`;
-    
+
     // Add tooltip
     indicator.title = `Chaos Level: ${level.toUpperCase()}`;
   }
-  
+
   /**
    * Initialize blood trail effect on scroll
    */
   function initBloodTrail() {
     let lastScrollTop = 0;
-    const bloodDrip = document.querySelector('.blood-drip');
-    
+    const bloodDrip = document.querySelector(".blood-drip");
+
     if (!bloodDrip) return;
-    
-    window.addEventListener('scroll', function() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollPercent = (scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-      
-      bloodDrip.style.width = scrollPercent + '%';
-      bloodDrip.style.boxShadow = `0 0 ${10 + scrollPercent/10}px rgba(196, 30, 58, 0.6)`;
-      
-      lastScrollTop = scrollTop;
-    }, false);
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollPercent = (scrollTop / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+
+        bloodDrip.style.width = scrollPercent + "%";
+        bloodDrip.style.boxShadow = `0 0 ${10 + scrollPercent / 10}px rgba(196, 30, 58, 0.6)`;
+
+        lastScrollTop = scrollTop;
+      },
+      false,
+    );
   }
-  
+
   /**
    * Add convergence animation to code blocks
    */
   function initCodeBlockEffects() {
-    const codeBlocks = document.querySelectorAll('pre code');
-    
-    codeBlocks.forEach(block => {
-      block.addEventListener('mouseenter', function() {
-        this.style.boxShadow = '0 0 20px rgba(0, 255, 255, 0.3)';
+    const codeBlocks = document.querySelectorAll("pre code");
+
+    codeBlocks.forEach((block) => {
+      block.addEventListener("mouseenter", function () {
+        this.style.boxShadow = "0 0 20px rgba(0, 255, 255, 0.3)";
       });
-      
-      block.addEventListener('mouseleave', function() {
-        this.style.boxShadow = 'none';
+
+      block.addEventListener("mouseleave", function () {
+        this.style.boxShadow = "none";
       });
     });
   }
-  
+
   // Add CSS animations
-  const style = document.createElement('style');
+  const style = document.createElement("style");
   style.textContent = `
     @keyframes float {
       0%, 100% {
@@ -136,5 +140,4 @@
     }
   `;
   document.head.appendChild(style);
-  
 })();

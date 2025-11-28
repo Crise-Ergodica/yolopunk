@@ -27,10 +27,11 @@ including dataset preparation, model training, and inference.
          ▒▒▒▒▒▒
 """
 
+from __future__ import annotations
+
 import os
 import shutil
-from pathlib import Path
-from typing import Any, List, Optional, Tuple, Union
+from typing import Any
 
 from ultralytics import YOLO
 
@@ -38,24 +39,19 @@ from ultralytics import YOLO
 class YOLOClassificationTrainer:
     """High-level trainer for YOLO classification models.
 
-    This class handles dataset preparation, model training, and inference
-    for YOLO classification tasks. It manages directory structures compatible
-    with the Ultralytics YOLO framework and provides methods for the complete
-    training pipeline.
+    This class handles dataset preparation, model training, and inference for YOLO classification tasks. It manages
+    directory structures compatible with the Ultralytics YOLO framework and provides methods for the complete training
+    pipeline.
 
-    The class assumes external configuration of auxiliary attributes like
-    `yolo_classes_path`, `yolo_notes_path`, and `test_percentual_divisor`
-    for seamless integration with existing projects.
+    The class assumes external configuration of auxiliary attributes like `yolo_classes_path`, `yolo_notes_path`, and
+    `test_percentual_divisor` for seamless integration with existing projects.
 
     Attributes:
-        image_folder: Tuple containing (path_folder, name_folder) where
-            path_folder is the absolute or relative path to images and
-            name_folder is the class label used in dataset structure.
+        image_folder: Tuple containing (path_folder, name_folder) where path_folder is the absolute or relative path to
+            images and name_folder is the class label used in dataset structure.
         percentual_data_divisor: Percentage of data allocated to test set.
-        predict_object: Input object for prediction (image path, folder path,
-            or list of paths).
-
-    Typical Usage Example:
+        predict_object: Input object for prediction (image path, folder path, or list of paths).
+        Typical Usage Example:
         >>> trainer = YOLOClassificationTrainer()
         >>> trainer.image_folder = ("data/cats", "cats")
         >>> trainer.percentual_data_divisor = 20
@@ -65,12 +61,12 @@ class YOLOClassificationTrainer:
 
     def __init__(self) -> None:
         """Initialize the trainer with default attribute values."""
-        self._image_folder: Optional[Tuple[str, str]] = None
-        self._percentual_data_divisor: Optional[Union[int, float]] = None
+        self._image_folder: tuple[str, str] | None = None
+        self._percentual_data_divisor: int | float | None = None
         self._predict_object: Any = None
 
     @property
-    def image_folder(self) -> Optional[Tuple[str, str]]:
+    def image_folder(self) -> tuple[str, str] | None:
         """Get the image folder configuration.
 
         Returns:
@@ -81,38 +77,35 @@ class YOLOClassificationTrainer:
         return self._image_folder
 
     @image_folder.setter
-    def image_folder(self, folder: Optional[Tuple[str, str]]) -> None:
+    def image_folder(self, folder: tuple[str, str] | None) -> None:
         """Set the image folder configuration.
 
         Args:
-            folder: Tuple of (path_folder, name_folder) where path_folder
-                is the source directory and name_folder is the class label,
-                or None to unset.
+            folder: Tuple of (path_folder, name_folder) where path_folder is the source directory and name_folder is the
+                class label, or None to unset.
 
-        Example:
+        Examples:
             >>> trainer.image_folder = ("data/cats", "cats")
         """
         self._image_folder = folder
 
     @property
-    def percentual_data_divisor(self) -> Optional[Union[int, float]]:
+    def percentual_data_divisor(self) -> int | float | None:
         """Get the test set percentage.
 
         Returns:
-            Percentage of data allocated to test set (e.g., 20 for 20%),
-            or None if not configured.
+            Percentage of data allocated to test set (e.g., 20 for 20%),: or None if not configured.
         """
         return self._percentual_data_divisor
 
     @percentual_data_divisor.setter
-    def percentual_data_divisor(self, divisor: Union[int, float]) -> None:
+    def percentual_data_divisor(self, divisor: int | float) -> None:
         """Set the test set percentage.
 
         Args:
-            divisor: Percentage of files to allocate to test set.
-                For example, 20 means 20% test, 80% train.
+            divisor: Percentage of files to allocate to test set. For example, 20 means 20% test, 80% train.
 
-        Example:
+        Examples:
             >>> trainer.percentual_data_divisor = 20
         """
         self._percentual_data_divisor = divisor
@@ -138,7 +131,7 @@ class YOLOClassificationTrainer:
                 - List of image paths (List[str] or List[Path])
                 - Any other format supported by YOLO.predict()
 
-        Example:
+        Examples:
             >>> trainer.predict_object = "images/test_image.jpg"
             >>> trainer.predict_object = ["img1.jpg", "img2.jpg"]
         """
@@ -157,35 +150,33 @@ class YOLOClassificationTrainer:
         Splits images from `image_folder` into train and test directories
         based on `percentual_data_divisor` or `test_percentual_divisor`.
 
-        Note:
+        Raises:
+            FileNotFoundError: If source directories don't exist.
+            PermissionError: If lacking write permissions for destination.
+
+        Examples:
+            >>> trainer.image_folder = ("raw_data/cats", "cats")
+            >>> trainer.percentual_data_divisor = 20
+            >>> trainer.yolo_classes_path = "config/classes.txt"
+            >>> trainer.slicing_dataset_for_training()
+
+        Notes:
             This method expects external configuration of:
                 - self.yolo_classes_path (optional): Path to classes.txt
                 - self.yolo_notes_path (optional): Path to notes.json
                 - self.test_percentual_divisor (optional): Alternative to
                   percentual_data_divisor for legacy compatibility
-
-        Raises:
-            FileNotFoundError: If source directories don't exist.
-            PermissionError: If lacking write permissions for destination.
-
-        Example:
-            >>> trainer.image_folder = ("raw_data/cats", "cats")
-            >>> trainer.percentual_data_divisor = 20
-            >>> trainer.yolo_classes_path = "config/classes.txt"
-            >>> trainer.slicing_dataset_for_training()
         """
-        list_archives: List[Optional[Tuple[str, str]]] = [self.image_folder]
+        list_archives: list[tuple[str, str] | None] = [self.image_folder]
         yolo_dataset_dir: str = "datasets/dataset_YOLO"
         os.makedirs(yolo_dataset_dir, exist_ok=True)
 
         # Copy auxiliary files if configured
-        yolo_classes_path: Optional[str] = getattr(
-            self, "yolo_classes_path", None
-        )
+        yolo_classes_path: str | None = getattr(self, "yolo_classes_path", None)
         if yolo_classes_path:
             shutil.copy(yolo_classes_path, yolo_dataset_dir)
 
-        yolo_notes_path: Optional[str] = getattr(self, "yolo_notes_path", None)
+        yolo_notes_path: str | None = getattr(self, "yolo_notes_path", None)
         if yolo_notes_path:
             shutil.copy(yolo_notes_path, yolo_dataset_dir)
 
@@ -195,18 +186,14 @@ class YOLOClassificationTrainer:
                 continue
 
             path_folder, name_folder = folder
-            all_files: List[str] = [
-                f
-                for f in os.listdir(path_folder)
-                if os.path.isfile(os.path.join(path_folder, f))
-            ]
+            all_files: list[str] = [f for f in os.listdir(path_folder) if os.path.isfile(os.path.join(path_folder, f))]
 
             total_files: int = len(all_files)
             if total_files == 0:
                 continue
 
             # Determine test percentage
-            test_percentual: Union[int, float] = getattr(
+            test_percentual: int | float = getattr(
                 self,
                 "test_percentual_divisor",
                 self.percentual_data_divisor,
@@ -277,12 +264,9 @@ class YOLOClassificationTrainer:
             FileNotFoundError: If model weights or dataset.yaml not found.
             RuntimeError: If CUDA requested but not available.
 
-        Example:
+        Examples:
             >>> results = trainer.training_yolo_model(
-            ...     yolo_model="yolov8m-cls.pt",
-            ...     num_epochs=100,
-            ...     img_size=640,
-            ...     training_device="cuda"
+            ...     yolo_model="yolov8m-cls.pt", num_epochs=100, img_size=640, training_device="cuda"
             ... )
         """
         model: YOLO = YOLO(yolo_model)
@@ -309,13 +293,12 @@ class YOLOClassificationTrainer:
         confidence scores.
 
         Args:
-            yolo_model: Path to trained model weights. Default path assumes
-                Ultralytics default output structure for classification.
-            save_predict: Whether to save prediction results and visualizations
-                to disk.
+            yolo_model: Path to trained model weights. Default path assumes Ultralytics default output structure for
+                classification.
+            save_predict: Whether to save prediction results and visualizations to disk.
             img_size: Input image size for inference (square dimension in pixels).
-            predict_confidence: Minimum confidence threshold for predictions.
-                Predictions below this threshold may be filtered.
+            predict_confidence: Minimum confidence threshold for predictions. Predictions below this threshold may be
+                filtered.
 
         Returns:
             Prediction results object from Ultralytics YOLO containing
@@ -325,12 +308,10 @@ class YOLOClassificationTrainer:
             FileNotFoundError: If model weights not found.
             ValueError: If predict_object not set.
 
-        Example:
+        Examples:
             >>> trainer.predict_object = "test_images/cat.jpg"
             >>> results = trainer.predict_yolo_model(
-            ...     yolo_model="runs/classify/train/weights/best.pt",
-            ...     save_predict=True,
-            ...     predict_confidence=0.8
+            ...     yolo_model="runs/classify/train/weights/best.pt", save_predict=True, predict_confidence=0.8
             ... )
         """
         model: YOLO = YOLO(yolo_model)

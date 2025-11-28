@@ -3,7 +3,7 @@
 <div class="grimorio-header" markdown>
 
 **Treinamento Ergódico**  
-*Do caos à convergência*
+_Do caos à convergência_
 
 </div>
 
@@ -16,8 +16,8 @@ O modo treino do yolopunk implementa uma pipeline ergódica onde cada epoch expl
 ### Anatomia de um Treino
 
 ```python
+from yolopunk.callbacks import BloodLogger, ConvergenceMonitor
 from yolopunk.train import ErgodTrainer
-from yolopunk.callbacks import ConvergenceMonitor, BloodLogger
 
 # Configuração
 trainer = ErgodTrainer(
@@ -25,10 +25,7 @@ trainer = ErgodTrainer(
     data="dataset.yaml",
     epochs=100,
     patience=10,
-    callbacks=[
-        ConvergenceMonitor(threshold=0.001),
-        BloodLogger(verbose=True)
-    ]
+    callbacks=[ConvergenceMonitor(threshold=0.001), BloodLogger(verbose=True)],
 )
 
 # Treino
@@ -47,9 +44,9 @@ val: images/val
 test: images/test
 
 names:
-  0: class_0
-  1: class_1
-  2: class_2
+    0: class_0
+    1: class_1
+    2: class_2
 ```
 
 ### Data Augmentation Ergódica
@@ -59,12 +56,10 @@ from yolopunk.augment import ErgodicAugmentation
 
 aug = ErgodicAugmentation(
     chaos_level=0.3,  # Quantidade de caos injetado
-    converge_after=50  # Reduzir caos após N epochs
+    converge_after=50,  # Reduzir caos após N epochs
 )
 
-trainer = ErgodTrainer(
-    augmentation=aug
-)
+trainer = ErgodTrainer(augmentation=aug)
 ```
 
 ## Hiperparâmetros
@@ -79,16 +74,13 @@ config = {
     "lrf": 0.01,
     "momentum": 0.937,
     "weight_decay": 0.0005,
-    
     # Learning rate schedule
     "warmup_epochs": 3,
     "warmup_momentum": 0.8,
     "warmup_bias_lr": 0.1,
-    
     # Regularização
     "dropout": 0.0,
     "label_smoothing": 0.0,
-    
     # Augmentation
     "hsv_h": 0.015,
     "hsv_s": 0.7,
@@ -119,8 +111,8 @@ from yolopunk.callbacks import ConvergenceMonitor
 callback = ConvergenceMonitor(
     metric="mAP50",
     threshold=0.001,  # Mudança mínima para considerar melhoria
-    patience=10,      # Epochs sem melhoria antes de parar
-    mode="max"        # Maximizar métrica
+    patience=10,  # Epochs sem melhoria antes de parar
+    mode="max",  # Maximizar métrica
 )
 ```
 
@@ -131,12 +123,7 @@ Log visual com métricas em tempo real:
 ```python
 from yolopunk.callbacks import BloodLogger
 
-callback = BloodLogger(
-    verbose=True,
-    log_every=1,
-    plot_convergence=True,
-    save_dir="runs/train"
-)
+callback = BloodLogger(verbose=True, log_every=1, plot_convergence=True, save_dir="runs/train")
 ```
 
 Saída exemplo:
@@ -159,30 +146,26 @@ Saída exemplo:
 
 ### Principais Métricas
 
-| Métrica | Descrição | Range |
-|---------|-----------|-------|
-| **mAP@50** | Mean Average Precision @ IoU=0.5 | 0-1 |
-| **mAP@95** | Mean Average Precision @ IoU=0.5:0.95 | 0-1 |
-| **Precision** | TP / (TP + FP) | 0-1 |
-| **Recall** | TP / (TP + FN) | 0-1 |
-| **Loss** | Função de perda combinada | 0-∞ |
+| Métrica       | Descrição                             | Range |
+| ------------- | ------------------------------------- | ----- |
+| **mAP@50**    | Mean Average Precision @ IoU=0.5      | 0-1   |
+| **mAP@95**    | Mean Average Precision @ IoU=0.5:0.95 | 0-1   |
+| **Precision** | TP / (TP + FP)                        | 0-1   |
+| **Recall**    | TP / (TP + FN)                        | 0-1   |
+| **Loss**      | Função de perda combinada             | 0-∞   |
 
 ### Visualização de Convergência
 
 ```python
 from yolopunk.plotting import plot_convergence
 
-plot_convergence(
-    results,
-    metrics=["mAP50", "loss"],
-    save="convergence.png"
-)
+plot_convergence(results, metrics=["mAP50", "loss"], save="convergence.png")
 ```
 
 ## Best Practices
 
 !!! tip "Dicas de Ouro"
-    
+
     1. **Comece pequeno**: Use `yolov8n` para experimentos rápidos
     2. **Monitore GPU**: BloodLogger mostra uso de memória
     3. **Early stopping**: Configure `patience` adequadamente
@@ -190,7 +173,7 @@ plot_convergence(
     5. **Validação**: Use um validation set representativo
 
 !!! warning "Armadilhas Comuns"
-    
+
     - **Overfitting**: Reduza `epochs` ou aumente regularização
     - **Underfitting**: Aumente capacidade do modelo ou epochs
     - **OOM**: Reduza `batch_size` ou tamanho da imagem
@@ -201,35 +184,25 @@ plot_convergence(
 ## Exemplo Completo
 
 ```python
-from yolopunk.train import ErgodTrainer
-from yolopunk.callbacks import ConvergenceMonitor, BloodLogger
 from yolopunk.augment import ErgodicAugmentation
+from yolopunk.callbacks import BloodLogger, ConvergenceMonitor
+from yolopunk.train import ErgodTrainer
 
 # Dataset
 data_config = {
     "path": "./dataset",
     "train": "images/train",
     "val": "images/val",
-    "names": {0: "person", 1: "car", 2: "bike"}
+    "names": {0: "person", 1: "car", 2: "bike"},
 }
 
 # Augmentation
-aug = ErgodicAugmentation(
-    chaos_level=0.3,
-    converge_after=50
-)
+aug = ErgodicAugmentation(chaos_level=0.3, converge_after=50)
 
 # Callbacks
 callbacks = [
-    ConvergenceMonitor(
-        metric="mAP50",
-        threshold=0.001,
-        patience=10
-    ),
-    BloodLogger(
-        verbose=True,
-        plot_convergence=True
-    )
+    ConvergenceMonitor(metric="mAP50", threshold=0.001, patience=10),
+    BloodLogger(verbose=True, plot_convergence=True),
 ]
 
 # Trainer
@@ -241,7 +214,7 @@ trainer = ErgodTrainer(
     imgsz=640,
     augmentation=aug,
     callbacks=callbacks,
-    device="cuda:0"
+    device="cuda:0",
 )
 
 # Train

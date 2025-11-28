@@ -30,6 +30,6 @@ from .classification import YOLOClassificationTrainer
 __version__: str = "0.1.0"
 __author__: str = "Judson"
 
-__all__: List[str] = [
+__all__: list[str] = [
     "YOLOClassificationTrainer",
 ]
