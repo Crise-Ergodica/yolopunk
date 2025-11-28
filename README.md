@@ -31,13 +31,13 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 
 **YOLOPunk** segue rigorosos padrões de qualidade e legibilidade de código:
 
-###  Idioma do Código:
+### Idioma do Código:
 
 - **Código-fonte**: Inglês (gnomes de variáveis, funções, classes, comentários)
 - **Documentação de usuário**: Português (README, docs/)
 - **Motivo**: Acessibilidade global e conformidade com padrões internacionais
 
-###  PEPs Seguidas:
+### PEPs Seguidas:
 
 #### **PEP 8** - Style Guide for Python Code
 
@@ -82,7 +82,7 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
       """
   ```
 
-###  Ferramentas de Qualidade:
+### Ferramentas de Qualidade:
 
 - **black**: Formatação automática (quando disponível)
 - **flake8**: Linting e checagem de estilo

@@ -16,11 +16,12 @@ _Bem-vindo ao núcleo que pulsa sangue e dá significado a tudo isso!_
 
 ## 📖 Visão Geral
 
-Este diretório encarna o **código essencial** do projeto YOLOPunk. Aqui reside a implementação central do framework, organizada de forma modular e ergódica para facilitar experimentação, desenvolvimento e contribuição.
+Este diretório encarna o **código essential** do projeto YOLOPunk. Aqui reside a implementação central do framework, organizada de forma modular e ergódica para facilitar experimentação, desenvolvimento e contribuição.
 
 ### 🎯 Propósito
 
 O `yolopunk/` é o **núcleo técnico** que implementa:
+
 - Interface de alto nível para detecção de objetos com YOLO
 - Utilitários para processamento de imagens e visualização
 - Sistema modular de contribuições da comunidade
@@ -31,7 +32,7 @@ O `yolopunk/` é o **núcleo técnico** que implementa:
 > "O framework não é suave — é um labirinto de folhas."  
 > _Cada módulo pode abrir uma porta… ou trancar você na sala errada._
 
-- **Modularidade**: Componentes independentes e reutilizáveis
+- **Modularidade**: Components independentes e reutilizáveis
 - **Simplicidade**: API limpa e intuitiva por cima da complexidade do YOLO
 - **Extensibilidade**: Fácil adicionar novas funcionalidades via `contrib/`
 - **Qualidade**: Código segue PEP 8, PEP 257, PEP 484 e Google Style Guide
@@ -76,24 +77,26 @@ yolopunk/
 #### `__init__.py` - Inicialização do Pacote
 
 **Responsabilidades:**
+
 - Define metadata do pacote (`__version__`, `__author__`, `__license__`)
 - Configura diretórios padrão (`MODELS_DIR`, `DATA_DIR`, `RESULTS_DIR`)
 - Importa e expõe APIs públicas
-- Gerencia dependências opcionais com tratamento de erros
+- Gerencia dependências opcionais com tratamento de errors
 
 **Exports Públicos:**
+
 ```python
 __all__ = [
-    "__version__",
+    "DATA_DIR",
+    "MODELS_DIR",
+    "RESULTS_DIR",
+    "ROOT_DIR",
+    "Vision",  # Se ultralytics disponível
     "__author__",
     "__email__",
     "__license__",
-    "ROOT_DIR",
-    "MODELS_DIR",
-    "DATA_DIR",
-    "RESULTS_DIR",
-    "Vision",        # Se ultralytics disponível
-    "contrib",       # Se módulo contrib disponível
+    "__version__",
+    "contrib",  # Se módulo contrib disponível
 ]
 ```
 
@@ -104,6 +107,7 @@ __all__ = [
 Interface de alto nível para detecção de objetos com YOLO.
 
 **Funcionalidades:**
+
 - ✅ Detecção de objetos em imagens e vídeos
 - ✅ Treinamento de modelos customizados
 - ✅ Exportação para múltiplos formatos (ONNX, TorchScript, etc.)
@@ -112,6 +116,7 @@ Interface de alto nível para detecção de objetos com YOLO.
 - ✅ Lazy loading do modelo
 
 **Exemplo de Uso:**
+
 ```python
 from yolopunk import Vision
 
@@ -124,18 +129,13 @@ results = detector.detect("image.jpg")
 # Detecção com filtros
 results = detector.detect(
     "image.jpg",
-    conf=0.7,           # Confiança mínima
+    conf=0.7,  # Confiança mínima
     classes=[0, 1, 2],  # Filtrar classes específicas
-    save=True           # Salvar resultados
+    save=True,  # Salvar resultados
 )
 
 # Treinar modelo
-results = detector.train(
-    data="dataset.yaml",
-    epochs=100,
-    imgsz=640,
-    batch=16
-)
+results = detector.train(data="dataset.yaml", epochs=100, imgsz=640, batch=16)
 
 # Exportar modelo
 path = detector.export(format="onnx")
@@ -145,22 +145,19 @@ path = detector.export(format="onnx")
 
 **Funções Disponíveis:**
 
-| Função | Descrição |
-|--------|----------|
-| `load_image()` | Carrega imagem do disco (RGB, BGR, GRAY) |
-| `save_image()` | Salva imagem no disco |
-| `resize_image()` | Redimensiona mantendo aspect ratio |
-| `draw_boxes()` | Desenha bounding boxes com labels |
-| `show_image()` | Exibe imagem em janela |
-| `get_video_info()` | Obtém metadados de vídeo |
+| Função             | Descrição                                |
+| ------------------ | ---------------------------------------- |
+| `load_image()`     | Carrega imagem do disco (RGB, BGR, GRAY) |
+| `save_image()`     | Salva imagem no disco                    |
+| `resize_image()`   | Redimensiona mantendo aspect ratio       |
+| `draw_boxes()`     | Desenha bounding boxes com labels        |
+| `show_image()`     | Exibe imagem em janela                   |
+| `get_video_info()` | Obtém metadados de vídeo                 |
 
 **Exemplo de Uso:**
+
 ```python
-from yolopunk.utils import (
-    load_image,
-    draw_boxes,
-    save_image
-)
+from yolopunk.utils import draw_boxes, load_image, save_image
 
 # Carregar e processar imagem
 img = load_image("image.jpg")
@@ -175,7 +172,7 @@ img_annotated = draw_boxes(
     boxes,
     labels=labels,
     scores=scores,
-    color=(139, 0, 0)  # Vermelho sangue
+    color=(139, 0, 0),  # Vermelho sangue
 )
 
 # Salvar resultado
@@ -185,7 +182,8 @@ save_image(img_annotated, "output.jpg")
 #### `contrib/` - Contribuições da Comunidade
 
 **Organização:**
-- Cada autor tem seu próprio subdiretório
+
+- Cada author tem seu próprio subdiretório
 - Contribuições seguem padrões estritos de qualidade
 - Código em inglês, documentação em português
 
@@ -198,12 +196,14 @@ save_image(img_annotated, "output.jpg")
 Trainer de alto nível para classificação YOLO.
 
 **Funcionalidades:**
+
 - Preparação e split automático de datasets
 - Treinamento com parâmetros configuráveis
 - Inferência com threshold de confiança
 - Suporte a múltiplas classes
 
 **Exemplo:**
+
 ```python
 from yolopunk.contrib.neojudson import YOLOClassificationTrainer
 
@@ -218,18 +218,11 @@ trainer.percentual_data_divisor = 20  # 20% test, 80% train
 trainer.slicing_dataset_for_training()
 
 # Treinar modelo
-results = trainer.training_yolo_model(
-    yolo_model="yolov8m-cls.pt",
-    num_epochs=100,
-    img_size=640,
-    training_device="cuda"
-)
+results = trainer.training_yolo_model(yolo_model="yolov8m-cls.pt", num_epochs=100, img_size=640, training_device="cuda")
 
 # Fazer predições
 trainer.predict_object = "test_images/cat.jpg"
-predictions = trainer.predict_yolo_model(
-    predict_confidence=0.8
-)
+predictions = trainer.predict_yolo_model(predict_confidence=0.8)
 ```
 
 ---
@@ -255,24 +248,24 @@ predictions = trainer.predict_yolo_model(
 git clone https://github.com/Crise-Ergodica/yolopunk.git
 cd yolopunk
 
-# Instale em modo desenvolvimento
+# Install em modo desenvolvimento
 pip install -e .
 ```
 
 #### 2. Com Dependências YOLO
 
 ```bash
-# Instale com suporte completo a YOLO
+# Install com suporte completo a YOLO
 pip install -e ".[yolo]"
 ```
 
 #### 3. Com Dependências de Desenvolvimento
 
 ```bash
-# Instale com ferramentas de desenvolvimento
+# Install com ferramentas de desenvolvimento
 pip install -e ".[dev]"
 
-# Ou instale tudo
+# Ou install tudo
 pip install -e ".[all]"
 ```
 
@@ -318,7 +311,7 @@ for result in results:
 
 ```python
 from yolopunk import Vision
-from yolopunk.utils import load_image, draw_boxes, save_image
+from yolopunk.utils import draw_boxes, load_image, save_image
 
 # Detectar
 detector = Vision("yolov8n.pt")
@@ -338,8 +331,9 @@ save_image(img_annotated, "output.jpg")
 ### Exemplo 3: Processar Vídeo
 
 ```python
-from yolopunk import Vision
 import cv2
+
+from yolopunk import Vision
 
 detector = Vision("yolov8n.pt")
 
@@ -347,15 +341,15 @@ detector = Vision("yolov8n.pt")
 results = detector.detect(
     "video.mp4",
     stream=True,  # Streaming mode
-    save=True,    # Salvar vídeo com anotações
-    conf=0.5
+    save=True,  # Salvar vídeo com anotações
+    conf=0.5,
 )
 
 for result in results:
     # Processar cada frame
     annotated = result.plot()  # Frame anotado
     cv2.imshow("YOLOPunk", annotated)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 cv2.destroyAllWindows()
@@ -369,14 +363,9 @@ from yolopunk import Vision
 detector = Vision("yolov8n.pt", device="cuda")
 
 # Webcam (device 0)
-results = detector.detect(
-    source=0,
-    stream=True,
-    show=True,
-    conf=0.5
-)
+results = detector.detect(source=0, stream=True, show=True, conf=0.5)
 
-for result in results:
+for _result in results:
     pass  # Processamento em tempo real
 ```
 
@@ -390,13 +379,7 @@ trainer = Vision("yolov8n.pt")
 
 # Treinar com dataset customizado
 results = trainer.train(
-    data="custom_dataset.yaml",
-    epochs=100,
-    imgsz=640,
-    batch=16,
-    name="custom_model",
-    patience=50,
-    save=True
+    data="custom_dataset.yaml", epochs=100, imgsz=640, batch=16, name="custom_model", patience=50, save=True
 )
 
 # Modelo treinado salvo em runs/detect/custom_model/
@@ -428,6 +411,7 @@ results = detector.detect("img.jpg")  # Carrega aqui
 # Se ultralytics não estiver instalado
 try:
     from .core import Vision
+
     CORE_AVAILABLE = True
 except ImportError:
     Vision = None
@@ -461,6 +445,7 @@ Todos os módulos seguem rigorosamente:
 - ✅ **Google Style Guide**: Formato de docstrings
 
 **Veja detalhes em:**
+
 - [`contrib/CODING_STANDARDS.md`](contrib/CODING_STANDARDS.md) - Guia completo
 - [`contrib/README.md`](contrib/README.md) - Guia para contribuidores
 
@@ -503,6 +488,7 @@ touch yolopunk/contrib/seu_nome/seu_modulo.py
 ```
 
 **Leia mais:**
+
 - [contrib/README.md](contrib/README.md) - Guia detalhado
 - [contrib/CODING_STANDARDS.md](contrib/CODING_STANDARDS.md) - Padrões
 
@@ -557,6 +543,7 @@ mkdocs serve
 ### API Reference
 
 Documentação completa da API disponível em:
+
 - **Online**: [https://crise-ergodica.github.io/yolopunk](https://crise-ergodica.github.io/yolopunk)
 - **Local**: Execute `mkdocs serve` na raiz do projeto
 
@@ -567,6 +554,7 @@ Documentação completa da API disponível em:
 ### Problema: ImportError ao importar Vision
 
 **Solução:**
+
 ```bash
 pip install ultralytics opencv-python torch torchvision
 # ou
@@ -576,17 +564,19 @@ pip install -e ".[yolo]"
 ### Problema: CUDA não detectado
 
 **Solução:**
+
 ```python
 import torch
-print(torch.cuda.is_available())  # Deve ser True
+print(torch.cuda.is_available())  # Deve set True
 
 # Se False, reinstale PyTorch com suporte CUDA
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
 ```
 
-### Problema: Erro ao carregar modelo
+### Problema: Error ao carregar modelo
 
 **Solução:**
+
 ```python
 # Verifique se o modelo existe
 from pathlib import Path
@@ -595,17 +585,19 @@ model_path = Path("yolov8n.pt")
 if not model_path.exists():
     # Modelo será baixado automaticamente
     from yolopunk import Vision
+
     detector = Vision("yolov8n.pt")
 ```
 
 ### Problema: Memória insuficiente
 
 **Solução:**
+
 ```python
 # Use batch size menor
 results = detector.detect(
     "image.jpg",
-    batch=8  # Reduzir de 16 para 8
+    batch=8,  # Reduzir de 16 para 8
 )
 
 # Ou use modelo menor
@@ -664,16 +656,17 @@ Veja [`../LICENSE`](../LICENSE) para texto completo.
 
 ## 🩸 Créditos
 
-### Autor Principal
+### Author Principal
 
-**Aurora Drumond Costa Magalhães**  
+**Aurora Drumond Costa Magalhães**
+
 - GitHub: [@Crise-Ergodica](https://github.com/Crise-Ergodica)
 - Email: gdcm10@gmail.com
 
 ### Contribuidores
 
 - **Judson** - `contrib/neojudson/` (YOLO Classification Trainer)
-- _Seu nome aqui!_ - Contribua e seja creditado
+- _Seu gnome aqui!_ - Contribua e seja creditado
 
 ### Agradecimentos
 

@@ -110,7 +110,6 @@ predictions = trainer.predict_yolo_model(yolo_model="runs/classify/train/weights
        AGPL-3.0 (compatible with YOLOPunk)
    """
 
-
    from .your_module import YourClass
 
    __version__: str = "0.1.0"
