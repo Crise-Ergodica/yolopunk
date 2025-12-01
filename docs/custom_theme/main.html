@@ -10,11 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ 'stylesheets/yolopunk-base.css' | url }}">
-    {% if page.meta.custom_css %}
-    <link rel="stylesheet" href="{{ page.meta.custom_css | url }}">
-    {% endif %}
+    <!-- Stylesheets (via extra_css) -->
+    {% for path in config.extra_css %}
+    <link rel="stylesheet" href="{{ path | url }}">
+    {% endfor %}
     
     <!-- Meta SEO -->
     {% if page.meta.description %}
