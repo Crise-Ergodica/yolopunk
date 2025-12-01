@@ -1,14 +1,15 @@
 /* Content Pages - Markdown Styling */
+/* IMPORTANTE: Todos os estilos escopados em .doc-content para NÃO afetar o bento grid */
 
-/* Container para conteúdo */
-.main-content {
+/* Container para conteúdo de documentação */
+.doc-content {
     max-width: 900px;
     margin: 0 auto;
     padding: 3rem 2rem;
 }
 
 /* Typography Hierarchy */
-.main-content h1 {
+.doc-content h1 {
     font-family: var(--font-sans);
     font-size: 2.5rem;
     font-weight: 700;
@@ -20,7 +21,7 @@
     text-transform: uppercase;
 }
 
-.main-content h2 {
+.doc-content h2 {
     font-family: var(--font-sans);
     font-size: 1.8rem;
     font-weight: 600;
@@ -32,7 +33,7 @@
     letter-spacing: -0.01em;
 }
 
-.main-content h3 {
+.doc-content h3 {
     font-family: var(--font-sans);
     font-size: 1.4rem;
     font-weight: 600;
@@ -41,7 +42,7 @@
     margin-bottom: 0.75rem;
 }
 
-.main-content h4 {
+.doc-content h4 {
     font-family: var(--font-mono);
     font-size: 1rem;
     font-weight: 600;
@@ -52,8 +53,8 @@
     margin-bottom: 0.5rem;
 }
 
-.main-content h5,
-.main-content h6 {
+.doc-content h5,
+.doc-content h6 {
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 600;
@@ -63,7 +64,7 @@
 }
 
 /* Paragraphs */
-.main-content p {
+.doc-content p {
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.7;
@@ -71,43 +72,43 @@
     margin-bottom: 1.25rem;
 }
 
-.main-content p strong {
+.doc-content p strong {
     color: var(--text-primary);
     font-weight: 600;
 }
 
-.main-content p em {
+.doc-content p em {
     font-family: var(--font-serif);
     font-style: italic;
     color: var(--text-primary);
 }
 
 /* Links */
-.main-content a {
+.doc-content a {
     color: var(--crimson);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
 }
 
-.main-content a:hover {
+.doc-content a:hover {
     border-bottom-color: var(--crimson);
     text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
 }
 
 /* Lists */
-.main-content ul,
-.main-content ol {
+.doc-content ul,
+.doc-content ol {
     margin: 1.5rem 0;
     padding-left: 2rem;
     color: var(--text-secondary);
 }
 
-.main-content ul {
+.doc-content ul {
     list-style: none;
 }
 
-.main-content ul li::before {
+.doc-content ul li::before {
     content: '›';
     color: var(--crimson);
     font-weight: bold;
@@ -116,16 +117,16 @@
     margin-right: 0.75rem;
 }
 
-.main-content ol {
+.doc-content ol {
     counter-reset: item;
 }
 
-.main-content ol li {
+.doc-content ol li {
     counter-increment: item;
     position: relative;
 }
 
-.main-content ol li::before {
+.doc-content ol li::before {
     content: counter(item) '.';
     color: var(--crimson);
     font-family: var(--font-mono);
@@ -134,13 +135,13 @@
     left: -2rem;
 }
 
-.main-content li {
+.doc-content li {
     margin-bottom: 0.75rem;
     line-height: 1.6;
 }
 
 /* Code */
-.main-content code {
+.doc-content code {
     font-family: var(--font-mono);
     font-size: 0.9em;
     background: rgba(220, 20, 60, 0.1);
@@ -150,7 +151,7 @@
     border: 1px solid rgba(220, 20, 60, 0.2);
 }
 
-.main-content pre {
+.doc-content pre {
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--border-color);
     border-left: 3px solid var(--crimson);
@@ -161,7 +162,7 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
-.main-content pre code {
+.doc-content pre code {
     background: none;
     border: none;
     padding: 0;
@@ -171,7 +172,7 @@
 }
 
 /* Blockquotes */
-.main-content blockquote {
+.doc-content blockquote {
     font-family: var(--font-serif);
     font-style: italic;
     font-size: 1.1rem;
@@ -183,17 +184,17 @@
     border-radius: 0 8px 8px 0;
 }
 
-.main-content blockquote p {
+.doc-content blockquote p {
     color: inherit;
     margin-bottom: 0.5rem;
 }
 
-.main-content blockquote p:last-child {
+.doc-content blockquote p:last-child {
     margin-bottom: 0;
 }
 
 /* Tables */
-.main-content table {
+.doc-content table {
     width: 100%;
     border-collapse: collapse;
     margin: 2rem 0;
@@ -201,12 +202,12 @@
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
-.main-content table thead {
+.doc-content table thead {
     background: rgba(220, 20, 60, 0.1);
     border-bottom: 2px solid var(--crimson);
 }
 
-.main-content table th {
+.doc-content table th {
     font-family: var(--font-mono);
     font-weight: 600;
     text-transform: uppercase;
@@ -217,22 +218,22 @@
     font-size: 0.85rem;
 }
 
-.main-content table td {
+.doc-content table td {
     padding: 0.875rem 1rem;
     border-bottom: 1px solid var(--border-color);
     color: var(--text-secondary);
 }
 
-.main-content table tbody tr:hover {
+.doc-content table tbody tr:hover {
     background: rgba(220, 20, 60, 0.05);
 }
 
-.main-content table tbody tr:last-child td {
+.doc-content table tbody tr:last-child td {
     border-bottom: none;
 }
 
 /* Horizontal Rule */
-.main-content hr {
+.doc-content hr {
     border: none;
     height: 1px;
     background: linear-gradient(to right, transparent, var(--border-color), transparent);
@@ -240,7 +241,7 @@
 }
 
 /* Images */
-.main-content img {
+.doc-content img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
@@ -250,7 +251,7 @@
 }
 
 /* Admonitions / Alerts */
-.main-content .admonition {
+.doc-content .admonition {
     margin: 2rem 0;
     padding: 1.5rem;
     border-radius: 8px;
@@ -258,7 +259,7 @@
     background: rgba(220, 20, 60, 0.05);
 }
 
-.main-content .admonition-title {
+.doc-content .admonition-title {
     font-family: var(--font-mono);
     font-weight: 600;
     text-transform: uppercase;
@@ -269,21 +270,21 @@
 }
 
 /* Task Lists */
-.main-content .task-list-item {
+.doc-content .task-list-item {
     list-style: none;
 }
 
-.main-content .task-list-item::before {
+.doc-content .task-list-item::before {
     content: none;
 }
 
-.main-content .task-list-item input[type="checkbox"] {
+.doc-content .task-list-item input[type="checkbox"] {
     margin-right: 0.75rem;
     accent-color: var(--crimson);
 }
 
 /* Definition Lists */
-.main-content dt {
+.doc-content dt {
     font-family: var(--font-mono);
     font-weight: 600;
     color: var(--crimson);
@@ -294,7 +295,7 @@
     font-size: 0.9rem;
 }
 
-.main-content dd {
+.doc-content dd {
     margin-left: 2rem;
     margin-bottom: 1rem;
     color: var(--text-secondary);
@@ -302,7 +303,7 @@
 }
 
 /* Footnotes */
-.main-content .footnote {
+.doc-content .footnote {
     font-size: 0.85rem;
     color: var(--text-secondary);
     border-top: 1px solid var(--border-color);
@@ -312,28 +313,28 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .main-content {
+    .doc-content {
         padding: 2rem 1rem;
     }
     
-    .main-content h1 {
+    .doc-content h1 {
         font-size: 2rem;
     }
     
-    .main-content h2 {
+    .doc-content h2 {
         font-size: 1.5rem;
     }
     
-    .main-content h3 {
+    .doc-content h3 {
         font-size: 1.25rem;
     }
     
-    .main-content table {
+    .doc-content table {
         font-size: 0.85rem;
     }
     
-    .main-content table th,
-    .main-content table td {
+    .doc-content table th,
+    .doc-content table td {
         padding: 0.75rem 0.5rem;
     }
 }
