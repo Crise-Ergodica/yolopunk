@@ -70,3 +70,6 @@ nav:
       - Começando: exemplos/quickstart.md
       - Components: exemplos/componentes.md
       - Customização Jinja2: exemplos/customizacao-jinja2.md
+  - Desenvolvimento:
+      - Padrões: DEVELOPMENT.md
+      - Troubleshooting: TROUBLESHOOTING.md
