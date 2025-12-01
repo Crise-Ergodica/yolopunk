@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
 
 :root {
     --blood-red: #8B0000;
@@ -13,6 +13,11 @@
     --border-color: rgba(220, 20, 60, 0.3);
     --card-bg: rgba(26, 26, 26, 0.8);
     --hover-glow: rgba(220, 20, 60, 0.5);
+    
+    /* Typography */
+    --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-serif: 'IBM Plex Serif', Georgia, serif;
 }
 
 * {
@@ -22,7 +27,7 @@
 }
 
 body {
-    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-sans);
     background: var(--dark-bg);
     color: var(--text-primary);
     line-height: 1.6;
@@ -71,9 +76,10 @@ body::before {
     font-weight: 700;
     color: var(--crimson);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.15em;
     margin-bottom: 0.5rem;
     text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+    font-family: var(--font-sans);
 }
 
 /* Glitch effect */
@@ -131,12 +137,13 @@ body::before {
 }
 
 .subtitle {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: clamp(0.8rem, 2vw, 1rem);
     color: var(--text-secondary);
     letter-spacing: 0.3em;
     margin-bottom: 1rem;
     transform: scaleX(-1);
+    font-weight: 400;
 }
 
 .badges {
@@ -153,9 +160,10 @@ body::before {
     border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 0.75rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     color: var(--text-secondary);
     transition: all 0.3s ease;
+    font-weight: 400;
 }
 
 .badge:hover {
@@ -173,12 +181,21 @@ body::before {
 }
 
 .ergodic-quote {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
     color: var(--text-secondary);
     font-style: italic;
     max-width: 600px;
     margin: 0 auto 2rem;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.ergodic-quote strong {
+    font-family: var(--font-sans);
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.05em;
 }
 
 .footer-links {
@@ -192,6 +209,8 @@ body::before {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 0.9rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
@@ -201,7 +220,7 @@ body::before {
 
 .pentagramas {
     margin-top: 2rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.8rem;
     color: var(--text-secondary);
 }
