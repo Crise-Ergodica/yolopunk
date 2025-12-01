@@ -126,10 +126,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ## Components Disponíveis
 
-Veja a [página de components](exemplos/components.md) para todos os elementos visuais disponíveis.
+Veja a [página de components](exemplos/componentes.md) para todos os elementos visuais disponíveis.
 
 ### Quick Reference
-
+        
 **Hero:**
 
 ```markdown

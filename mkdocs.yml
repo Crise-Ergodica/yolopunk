@@ -69,5 +69,5 @@ nav:
       - Visão Geral: api/overview.md
   - Exemplos:
       - Começando: exemplos/quickstart.md
-      - Components: exemplos/components.md
+      - Components: exemplos/componentes.md
       - Customização Jinja2: exemplos/customizacao-jinja2.md
