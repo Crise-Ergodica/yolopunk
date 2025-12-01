@@ -1,0 +1,339 @@
+/* Content Pages - Markdown Styling */
+
+/* Container para conteúdo */
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Typography Hierarchy */
+.main-content h1 {
+    font-family: var(--font-sans);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: -0.02em;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.main-content h2 {
+    font-family: var(--font-sans);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    letter-spacing: -0.01em;
+}
+
+.main-content h3 {
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.main-content h4 {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--crimson);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.main-content h5,
+.main-content h6 {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraphs */
+.main-content p {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.25rem;
+}
+
+.main-content p strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.main-content p em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-primary);
+}
+
+/* Links */
+.main-content a {
+    color: var(--crimson);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.main-content a:hover {
+    border-bottom-color: var(--crimson);
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.3);
+}
+
+/* Lists */
+.main-content ul,
+.main-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+    color: var(--text-secondary);
+}
+
+.main-content ul {
+    list-style: none;
+}
+
+.main-content ul li::before {
+    content: '›';
+    color: var(--crimson);
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-left: -1.5rem;
+    margin-right: 0.75rem;
+}
+
+.main-content ol {
+    counter-reset: item;
+}
+
+.main-content ol li {
+    counter-increment: item;
+    position: relative;
+}
+
+.main-content ol li::before {
+    content: counter(item) '.';
+    color: var(--crimson);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    position: absolute;
+    left: -2rem;
+}
+
+.main-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* Code */
+.main-content code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    background: rgba(220, 20, 60, 0.1);
+    color: var(--neon-green);
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    border: 1px solid rgba(220, 20, 60, 0.2);
+}
+
+.main-content pre {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--crimson);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    overflow-x: auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.main-content pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--neon-green);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Blockquotes */
+.main-content blockquote {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    border-left: 4px solid var(--crimson);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(220, 20, 60, 0.05);
+    border-radius: 0 8px 8px 0;
+}
+
+.main-content blockquote p {
+    color: inherit;
+    margin-bottom: 0.5rem;
+}
+
+.main-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tables */
+.main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.main-content table thead {
+    background: rgba(220, 20, 60, 0.1);
+    border-bottom: 2px solid var(--crimson);
+}
+
+.main-content table th {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--crimson);
+    padding: 1rem;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.main-content table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.main-content table tbody tr:hover {
+    background: rgba(220, 20, 60, 0.05);
+}
+
+.main-content table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Horizontal Rule */
+.main-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border-color), transparent);
+    margin: 3rem 0;
+}
+
+/* Images */
+.main-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+/* Admonitions / Alerts */
+.main-content .admonition {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--crimson);
+    background: rgba(220, 20, 60, 0.05);
+}
+
+.main-content .admonition-title {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--crimson);
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+/* Task Lists */
+.main-content .task-list-item {
+    list-style: none;
+}
+
+.main-content .task-list-item::before {
+    content: none;
+}
+
+.main-content .task-list-item input[type="checkbox"] {
+    margin-right: 0.75rem;
+    accent-color: var(--crimson);
+}
+
+/* Definition Lists */
+.main-content dt {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--crimson);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.9rem;
+}
+
+.main-content dd {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Footnotes */
+.main-content .footnote {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 3rem;
+    padding-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 2rem 1rem;
+    }
+    
+    .main-content h1 {
+        font-size: 2rem;
+    }
+    
+    .main-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .main-content h3 {
+        font-size: 1.25rem;
+    }
+    
+    .main-content table {
+        font-size: 0.85rem;
+    }
+    
+    .main-content table th,
+    .main-content table td {
+        padding: 0.75rem 0.5rem;
+    }
+}
