@@ -23,7 +23,7 @@ Aqui, a visão da máquina é barroca, **um espaço reverso** onde não há clar
 - Documente cada paço que tiver antes que se perca.
 - Não fuja daquilo que parece impossível: corrompa, inquiete, desoriente.
 - Teste tudo, mas desconfie de tudo.
-  **Entre. Perca-se.**
+  **Entre e se perca..**
 
 ---
 
