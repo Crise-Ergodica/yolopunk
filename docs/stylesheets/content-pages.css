@@ -1,0 +1,678 @@
+/* ========================================
+   YOLOPUNK - Content Pages Styling
+   Ergodic dark theme for documentation pages
+   ======================================== */
+
+/* ==================
+   LAYOUT & STRUCTURE
+   ================== */
+
+.main-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+/* Content wrapper */
+article,
+.md-content {
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* ==================
+   TYPOGRAPHY
+   ================== */
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--crimson);
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--crimson);
+  box-shadow: 0 0 10px var(--crimson);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 3rem 0 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid var(--crimson);
+  letter-spacing: 0.02em;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 2.5rem 0 1rem 0;
+  position: relative;
+  padding-left: 0.75rem;
+}
+
+h3::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--crimson);
+  margin: 2rem 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 1.5rem 0 0.75rem 0;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 1.5rem 0 0.75rem 0;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Paragraphs */
+p {
+  margin: 0 0 1.5rem 0;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* Strong and emphasis */
+strong,
+b {
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+em,
+i {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+/* Links */
+a {
+  color: var(--crimson);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+a:hover {
+  color: var(--accent-red);
+  border-bottom-color: var(--accent-red);
+}
+
+a:visited {
+  color: rgba(220, 20, 60, 0.7);
+}
+
+/* Code */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--neon-green);
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  border: 1px solid rgba(220, 20, 60, 0.2);
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--crimson);
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  position: relative;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--neon-green);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Add language label to code blocks */
+pre[class*="language-"]::before {
+  content: attr(class);
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+/* ==================
+   LISTS
+   ================== */
+
+ul,
+ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+  font-weight: 600;
+}
+
+ol {
+  counter-reset: list-counter;
+}
+
+ol li {
+  position: relative;
+  margin-bottom: 0.75rem;
+  padding-left: 2rem;
+  counter-increment: list-counter;
+}
+
+ol li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  left: 0;
+  color: var(--crimson);
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+/* Nested lists */
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin: 0.5rem 0;
+}
+
+/* ==================
+   BLOCKQUOTES
+   ================== */
+
+blockquote {
+  margin: 2rem 0;
+  padding: 1.5rem 1.5rem 1.5rem 2rem;
+  background: rgba(220, 20, 60, 0.05);
+  border-left: 4px solid var(--crimson);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-secondary);
+  position: relative;
+}
+
+blockquote::before {
+  content: "❝";
+  position: absolute;
+  top: 1rem;
+  left: -0.5rem;
+  font-size: 3rem;
+  color: var(--crimson);
+  opacity: 0.3;
+  font-family: serif;
+  line-height: 0;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: right;
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* ==================
+   TABLES
+   ================== */
+
+table {
+  width: 100%;
+  margin: 2rem 0;
+  border-collapse: collapse;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: rgba(220, 20, 60, 0.1);
+}
+
+th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--crimson);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+  border-bottom: 2px solid var(--border-color);
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(220, 20, 60, 0.1);
+  color: var(--text-primary);
+}
+
+tr:hover {
+  background: rgba(220, 20, 60, 0.05);
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* ==================
+   HORIZONTAL RULES
+   ================== */
+
+hr {
+  margin: 3rem 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--border-color),
+    transparent
+  );
+  position: relative;
+}
+
+hr::after {
+  content: "⛤";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--dark-bg);
+  padding: 0 1rem;
+  color: var(--crimson);
+  font-size: 0.8rem;
+}
+
+/* ==================
+   IMAGES
+   ================== */
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  margin: 2rem 0;
+  display: block;
+}
+
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+figcaption {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  font-family: var(--font-serif);
+}
+
+/* ==================
+   ADMONITIONS / CALLOUTS
+   ================== */
+
+.admonition,
+.note,
+.warning,
+.tip,
+.danger {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.admonition-title,
+.admonition > p:first-child strong {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* Note / Info */
+.note,
+.admonition.note {
+  border-left-color: var(--cyber-blue);
+  background: rgba(0, 255, 255, 0.05);
+}
+
+.note .admonition-title,
+.admonition.note .admonition-title {
+  color: var(--cyber-blue);
+}
+
+/* Warning */
+.warning,
+.admonition.warning {
+  border-left-color: #ffa500;
+  background: rgba(255, 165, 0, 0.05);
+}
+
+.warning .admonition-title,
+.admonition.warning .admonition-title {
+  color: #ffa500;
+}
+
+/* Tip */
+.tip,
+.admonition.tip {
+  border-left-color: var(--neon-green);
+  background: rgba(57, 255, 20, 0.05);
+}
+
+.tip .admonition-title,
+.admonition.tip .admonition-title {
+  color: var(--neon-green);
+}
+
+/* Danger / Error */
+.danger,
+.admonition.danger {
+  border-left-color: var(--accent-red);
+  background: rgba(255, 0, 51, 0.05);
+}
+
+.danger .admonition-title,
+.admonition.danger .admonition-title {
+  color: var(--accent-red);
+}
+
+/* ==================
+   BUTTONS
+   ================== */
+
+.btn,
+.md-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 2px solid var(--crimson);
+  color: var(--crimson);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
+
+.btn:hover,
+.md-button:hover {
+  background: var(--crimson);
+  color: var(--dark-bg);
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-primary,
+.md-button--primary {
+  background: var(--crimson);
+  color: var(--dark-bg);
+}
+
+.btn-primary:hover,
+.md-button--primary:hover {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+}
+
+/* ==================
+   NAVIGATION
+   ================== */
+
+.navigation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.navigation-footer .btn:first-child {
+  margin-right: auto;
+}
+
+.navigation-footer .btn:last-child {
+  margin-left: auto;
+}
+
+/* ==================
+   CUSTOM COMPONENTS
+   ================== */
+
+/* Grimório Header */
+.grimorio-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(
+    135deg,
+    rgba(220, 20, 60, 0.1) 0%,
+    transparent 100%
+  );
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grimorio-header::before {
+  content: "⛤";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  color: var(--crimson);
+  opacity: 0.2;
+}
+
+.grimorio-header h1,
+.grimorio-header h2 {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.grimorio-header p {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-secondary);
+  margin-top: 1rem;
+}
+
+/* Ergodic Footer Quote */
+.ergodic-footer {
+  text-align: center;
+  margin: 4rem 0 2rem;
+  padding: 2rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* ==================
+   RESPONSIVE
+   ================== */
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  pre {
+    padding: 1rem;
+    font-size: 0.85rem;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th,
+  td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .navigation-footer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navigation-footer .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  blockquote {
+    padding: 1rem;
+  }
+
+  pre {
+    padding: 0.75rem;
+  }
+}
+
+/* ==================
+   PRINT STYLES
+   ================== */
+
+@media print {
+  body::before {
+    display: none;
+  }
+
+  .site-header,
+  .site-footer,
+  .navigation-footer {
+    display: none;
+  }
+
+  .main-content {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  pre,
+  blockquote,
+  table {
+    page-break-inside: avoid;
+  }
+}
