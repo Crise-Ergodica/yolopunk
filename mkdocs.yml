@@ -14,7 +14,6 @@ theme:
 extra_css:
   - stylesheets/yolopunk-base.css
   - stylesheets/bento-grid.css
-  - stylesheets/content-pages.css
 
 markdown_extensions:
   - abbr
