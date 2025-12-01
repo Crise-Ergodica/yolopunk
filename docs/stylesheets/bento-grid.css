@@ -66,33 +66,23 @@
     grid-row: span 2;
 }
 
-/* Card label - substitui os emojis */
+/* Card label - AGORA É O TÍTULO PRINCIPAL */
 .card-label {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     color: var(--crimson);
-    margin-bottom: 0.75rem;
-    opacity: 0.8;
+    margin-bottom: 1rem;
     text-transform: uppercase;
+    line-height: 1.3;
 }
 
-.card-title {
+/* Hero card - label ainda maior */
+.bento-card.large .card-label {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    font-family: var(--font-sans);
-    letter-spacing: -0.01em;
-}
-
-/* Hero card usa serif para destaque */
-.bento-card.large .card-title {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    font-weight: 600;
-    font-style: normal;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.25rem;
 }
 
 .card-description {
@@ -176,7 +166,11 @@
         grid-row: span 1;
     }
     
-    .bento-card.large .card-title {
-        font-size: 1.5rem;
+    .bento-card.large .card-label {
+        font-size: 1.2rem;
+    }
+    
+    .card-label {
+        font-size: 0.95rem;
     }
 }
