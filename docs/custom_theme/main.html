@@ -11,9 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ 'stylesheets/yolopunk-base.css' | url }}">
+    {% for path in config.extra_css %}
+    <link rel="stylesheet" href="{{ base_url }}/{{ path }}">
+    {% endfor %}
+    
     {% if page.meta.custom_css %}
-    <link rel="stylesheet" href="{{ page.meta.custom_css | url }}">
+    <link rel="stylesheet" href="{{ base_url }}/{{ page.meta.custom_css }}">
     {% endif %}
     
     <!-- Meta SEO -->
@@ -46,7 +49,7 @@
     
     <!-- Scripts -->
     {% if page.meta.custom_js %}
-    <script src="{{ page.meta.custom_js | url }}"></script>
+    <script src="{{ base_url }}/{{ page.meta.custom_js }}"></script>
     {% endif %}
     
 </body>
