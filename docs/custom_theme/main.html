@@ -34,7 +34,7 @@
     {% include "partials/header.html" %}
     {% endblock %}
     
-    <main class="main-content {% if page.file.src_path != 'index.md' %}doc-content{% endif %}">
+    <main class="main-content">
         {% block content %}
         {{ page.content }}
         {% endblock %}
