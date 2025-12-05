@@ -1,5 +1,6 @@
 <div align="center">
-<img src="docs/img/yolopunk_titulo.png" width="640" alt="YOLOPunk Logo">
+
+<img src="https://drive.google.com/uc?export=view&id=1ZjHvUXzoa2phqM0bByogAsWuB4nTg3SI" width="640" alt="YOLOPunk Logo">
 
 ###### _sǝɐ̰ɥןɐƃɐW ˙Ɔ ˙ᗡ ɐɹoɹn∀ - 5202/11/52 ǝpsǝp soʇuıɹıqɐן sop ɐsɐɔ ɐu opuɐɹʇuƎ_
 
