@@ -1,7 +1,7 @@
 """Neojudson Classification Module - YOLO Classification Training.
 
-This module provides high-level operations for YOLO classification
-models, including dataset preparation, model training, and inference.
+This module provides high-level operations for YOLO classification models,
+including dataset preparation, model training, and inference.
 
                   ██████   █████ ██████████    ███████
                  ▒▒██████ ▒▒███ ▒▒███▒▒▒▒▒█  ███▒▒▒▒▒███
@@ -257,9 +257,7 @@ class YOLOClassificationTrainer:
                 else:
                     destination_dir = test_dir
 
-                dst_path: str = os.path.join(
-                    destination_dir, file_name
-                )
+                dst_path: str = os.path.join(destination_dir, file_name)
                 shutil.copy(src_path, dst_path)
                 counter += 1
 
@@ -297,8 +295,7 @@ class YOLOClassificationTrainer:
             metrics, losses, and training statistics.
 
         Raises:
-            FileNotFoundError: If model weights or dataset.yaml not
-                found.
+            FileNotFoundError: If model weights or dataset.yaml not found.
             RuntimeError: If CUDA requested but not available.
 
         Examples:
