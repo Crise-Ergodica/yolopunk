@@ -80,7 +80,7 @@ class YOLOClassificationTrainer:
         Returns:
             Tuple containing (path_folder, name_folder) or None if
             not set.
-            - path_folder: Path to directory containing images.
+            - path_folder: Path to the directory containing images.
             - name_folder: Label name used in dataset structure.
         """
         return self._image_folder
@@ -185,22 +185,16 @@ class YOLOClassificationTrainer:
                   Alternative to percentual_data_divisor for legacy
                   compatibility
         """
-        list_archives: list[tuple[str, str] | None] = [
-            self.image_folder
-        ]
+        list_archives: list[tuple[str, str] | None] = [self.image_folder]
         yolo_dataset_dir: str = "datasets/dataset_YOLO"
         os.makedirs(yolo_dataset_dir, exist_ok=True)
 
         # Copy auxiliary files if configured
-        yolo_classes_path: str | None = getattr(
-            self, "yolo_classes_path", None
-        )
+        yolo_classes_path: str | None = getattr(self, "yolo_classes_path", None)
         if yolo_classes_path:
             shutil.copy(yolo_classes_path, yolo_dataset_dir)
 
-        yolo_notes_path: str | None = getattr(
-            self, "yolo_notes_path", None
-        )
+        yolo_notes_path: str | None = getattr(self, "yolo_notes_path", None)
         if yolo_notes_path:
             shutil.copy(yolo_notes_path, yolo_dataset_dir)
 
@@ -210,11 +204,7 @@ class YOLOClassificationTrainer:
                 continue
 
             path_folder, name_folder = folder
-            all_files: list[str] = [
-                f
-                for f in os.listdir(path_folder)
-                if os.path.isfile(os.path.join(path_folder, f))
-            ]
+            all_files: list[str] = [f for f in os.listdir(path_folder) if os.path.isfile(os.path.join(path_folder, f))]
 
             total_files: int = len(all_files)
             if total_files == 0:
@@ -231,20 +221,14 @@ class YOLOClassificationTrainer:
                 test_percentual = 20
 
             # Calculate split sizes
-            num_test: int = int(
-                total_files * (float(test_percentual) / 100.0)
-            )
+            num_test: int = int(total_files * (float(test_percentual) / 100.0))
             num_train: int = total_files - num_test
 
             counter: int = 0
 
             # Create output directories
-            train_dir: str = os.path.join(
-                yolo_dataset_dir, name_folder, "train"
-            )
-            test_dir: str = os.path.join(
-                yolo_dataset_dir, name_folder, "test"
-            )
+            train_dir: str = os.path.join(yolo_dataset_dir, name_folder, "train")
+            test_dir: str = os.path.join(yolo_dataset_dir, name_folder, "test")
             os.makedirs(train_dir, exist_ok=True)
             os.makedirs(test_dir, exist_ok=True)
 
@@ -300,10 +284,7 @@ class YOLOClassificationTrainer:
 
         Examples:
             >>> results = trainer.training_yolo_model(
-            ...     yolo_model="yolov8m-cls.pt",
-            ...     num_epochs=100,
-            ...     img_size=640,
-            ...     training_device="cuda"
+            ...     yolo_model="yolov8m-cls.pt", num_epochs=100, img_size=640, training_device="cuda"
             ... )
         """
         model: YOLO = YOLO(yolo_model)
@@ -353,9 +334,7 @@ class YOLOClassificationTrainer:
         Examples:
             >>> trainer.predict_object = "test_images/cat.jpg"
             >>> results = trainer.predict_yolo_model(
-            ...     yolo_model="runs/classify/train/weights/best.pt",
-            ...     save_predict=True,
-            ...     predict_confidence=0.8
+            ...     yolo_model="runs/classify/train/weights/best.pt", save_predict=True, predict_confidence=0.8
             ... )
         """
         model: YOLO = YOLO(yolo_model)
